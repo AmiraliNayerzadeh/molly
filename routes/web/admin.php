@@ -1,0 +1,12 @@
+<?php
+use Illuminate\Support\Facades\Route;
+
+
+Route::get('/' , function (){
+    return view('admin.master') ;
+});
+
+
+
+Route::resource('users' , \App\Http\Controllers\Admin\UserController::class) ;
+
