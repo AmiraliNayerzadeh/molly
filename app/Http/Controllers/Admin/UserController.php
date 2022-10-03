@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -28,7 +29,6 @@ class UserController extends Controller
     public function create()
     {
         return view('admin.users.create');
-
     }
 
     /**
@@ -40,31 +40,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validData = $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => ['nullable', 'numeric'],
-            'password' => 'required',
-            'is_superuser' => 'nullable'
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:4', 'confirmed'],
         ]);
 
-
-        if ($validData['is_superuser'] == 'on') {
-            $request->is_superuser = 1;
-        } else {
-            $request->is_superuser = 0;
-        }
-
-        User::create([
+         User::create([
             'name' => $validData['name'],
             'email' => $validData['email'],
-            'phone' => $validData['phone'],
-            'password' => Hash::make($validData['password']) ,
-            'is_superuser' => $validData['is_superuser']
-        ]) ;
-
-        return back();
-
+            'password' => Hash::make($validData['password']),
+        ]);
+         Alert::success('Success ', 'Profile Created!');
+        return redirect(route('users.index'));
     }
+
 
     /**
      * Display the specified resource.
@@ -83,9 +72,9 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('admin.users.edit',  compact('user')) ;
     }
 
     /**
@@ -95,9 +84,20 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $validData = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['nullable', 'string', 'min:4', 'confirmed'],
+        ]);
+        $user->update([
+            'name' => $validData['name'],
+            'email' => $validData['email'],
+            'password' => Hash::make($validData['password']),
+        ]);
+        Alert::success('Success ', 'Profile Updated!');
+        return redirect(route('users.index'));
     }
 
     /**
@@ -106,8 +106,10 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete() ;
+        Alert::success('Success ', 'Profile Deleted!');
+        return back() ;
     }
 }

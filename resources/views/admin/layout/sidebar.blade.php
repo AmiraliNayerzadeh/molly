@@ -25,7 +25,7 @@
                      with font-awesome or any other icon font library -->
 {{--                Dashboard--}}
                 <li class="nav-item menu-open">
-                    <a href="/admin" class="nav-link {{Route::currentRouteName() == 'admin' ? 'active' :''}}">
+                    <a href="/admin" class="nav-link {{Route::currentRouteName() == 'dashboard' ? 'active' :''}}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -34,8 +34,8 @@
                     </a>
                 </li>
 {{--                users--}}
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link {{Route::currentRouteName() == 'users.index' || 'users.create' || 'users.edit' ? 'active' :''}}">
+                <li class="nav-item {{Route::currentRouteName() == 'users.index' || Route::currentRouteName() == 'users.create' ||Route::currentRouteName() ==  'users.edit' ? 'menu-open' : ''}} ">
+                    <a href="{{route('users.index')}}" class="nav-link {{Route::currentRouteName() == 'users.index' || Route::currentRouteName() == 'users.create' ||Route::currentRouteName() ==  'users.edit' ? 'active ' : ''}}">
                         <i class="nav-icon fa fa-user-circle"></i>
                         <p>
                             Users
@@ -44,7 +44,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('users.create')}}" class="nav-link active">
+                            <a href="{{route('users.create')}}" class="nav-link  {{Route::currentRouteName() == 'users.create' ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add User</p>
                             </a>

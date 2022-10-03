@@ -13,7 +13,8 @@
                     </ol>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.container-fluid -->
     </section>
 
     <div class="row">
@@ -42,6 +43,8 @@
                             <th>Date</th>
                             <th>Role</th>
                             <th>Email verify</th>
+                            <th>Edit User</th>
+                            <th>Delete User</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -62,8 +65,22 @@
                                     <i class="fa fa-times" aria-hidden="true"></i>
                                 @else
                                     <i class="fa fa-check" aria-hidden="true"></i>
-
                                 @endif
+                            </td>
+
+                            <td>
+                                <a href="{{route('users.edit',['user' => $users])}}" >
+                                    <i class="fa fa-folder-open" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <form action="{{route('users.destroy' , $users)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn" type="submit">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
