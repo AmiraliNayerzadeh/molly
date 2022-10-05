@@ -81,6 +81,9 @@
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
 
+
+<script src="/asset/Admin/plugins/ckeditor/ckeditor.js"></script>
+
 @include('sweetalert::alert')
 
 
