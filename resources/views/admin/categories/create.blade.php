@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{route('blogs.index')}}">Blogs</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('categories.index')}}">Categories</a></li>
                         <li class="breadcrumb-item active">Create</li>
                     </ol>
                 </div>
@@ -30,22 +30,22 @@
             @endif
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Create Blog</h3>
+                    <h3 class="card-title">Create Category</h3>
                 </div>
                 <!-- /.card-header -->
-                <form action="{{route('blogs.store')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('categories.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body row">
                         <section class="col-lg-9">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label class="form-label" for="title">Title:</label>
-                                        <input class="form-control" type="text" name="title" id="title" value="{{old('title')}}" placeholder="Enter the title of your article" required>
+                                        <label class="form-label" for="name">Title:</label>
+                                        <input class="form-control" type="text" name="name" id="name" value="{{old('name')}}" placeholder="Enter the title of your article" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="form-label" for="title">Description:</label>
+                                        <label class="form-label" for="title">Description: <small>optional</small>  </label>
                                         <textarea class="ckeditor form-control" name="description" id="description" cols="30" rows="10">{!! old('description') !!}</textarea>
                                     </div>
 
@@ -58,14 +58,21 @@
                                 <div class="card-header">
                                     <span class="card-title">
                                         <i class="fa fa-sitemap" aria-hidden="true"></i>
-                                        Category:
+                                        Parent:
                                     </span>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label class="form-label" for="category">sellect</label>
-                                        <select class="form-control form-select" name="category" id="category">
+                                        <label class="form-label" for="parent">select</label>
+                                        <select class="form-control form-select" name="parent" id="parent">
                                             <option selected disabled>Chose your category</option>
+                                            <option value="0">This is Parent Category</option>
+                                            @foreach(\App\Models\Category::all()->where('parent' , 0) as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @foreach(\App\Models\Category::all()->where('parent' , $category->id) as $SECcategory)
+                                                    <option value="{{$SECcategory->id}}">-- {{$SECcategory->name}}</option>
+                                                @endforeach
+                                                @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -115,43 +122,11 @@
                                </div>
                             </div>
 {{--                           End SEO--}}
-
-                            {{--                            Publish Box--}}
-                            <div class="card">
-                                <div class="card-header">
-                                    <span class="card-title">Publish Option</span>
-                                </div>
-                                <div class="card-body">
-                                    <div>
-                                        <i class="fa fa-user-circle" aria-hidden="true"></i>
-                                        {{auth()->user()->name}}
-                                    </div>
-
-                                    <div>
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                        {{Carbon\Carbon::now()}}
-                                    </div>
-
-                                    <div>
-                                        <i class="fa fa-laptop" aria-hidden="true"></i>
-                                        status:
-                                        <bdi class="badge badge-info">Not yet created</bdi>
-                                    </div>
-                                </div>
-                                <div class="card-footer row">
-                                    <div class="col">
-                                        <button class="btn btn-success" name="status" value="1" type="submit">publish</button>
-                                    </div>
-
-                                    <div class="col">
-                                        <button class="btn btn-light " name="status" value="0" type="submit">draft</button>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            {{--                           End Publish Box--}}
                         </section>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="btn btn-success" type="submit">Register category</button>
                     </div>
                 </form>
 

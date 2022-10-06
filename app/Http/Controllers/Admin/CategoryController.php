@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
 {
@@ -26,7 +27,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
+
     }
 
     /**
@@ -37,7 +39,29 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required' ,
+            'description' => 'nullable' ,
+            'parent' => 'required' ,
+            'image' => ['nullable' , 'mimes:png,jpg,jpeg,webp,gif'] ,
+             'meta_title' => 'nullable',
+            'meta_keyword' => 'nullable' ,
+            'meta_description' => 'nullable'
+        ]);
+
+        if ($request->file('image')){
+        $file = $request->file('image') ;
+        $file->move(public_path('/categories/') , $file->getClientOriginalName()) ;
+        $validate['image'] = '/categories/'.$file->getClientOriginalName();
+        }
+        Category::create($validate) ;
+
+        Alert::success('Success ', 'Category Created!');
+
+        return redirect(route('categories.index')) ;
+
+
+
     }
 
     /**
@@ -57,9 +81,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit' , compact('category'));
     }
 
     /**
@@ -80,8 +104,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete() ;
+        Alert::success('Success ', 'Category Deleted!');
+        return redirect(route('categories.index'));
     }
 }

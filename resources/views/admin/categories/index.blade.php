@@ -35,34 +35,102 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <ul>
-                        @foreach($categories->where('parent' , 0) as $category)
-                            <li class="my-2 text-bold">{{$category->name}}</li>
-                            @foreach($categories->where('parent' , $category->id) as $secCat)
-                                <li class="my-2 mx-3">{{$secCat->name}}</li>
+                {{--                <div class="card-body">--}}
+                {{--                    <ul>--}}
+                {{--                        @foreach($categories->where('parent' , 0) as $category)--}}
+                {{--                            <li class="my-2 text-bold">{{$category->name}}</li>--}}
+                {{--                            @foreach($categories->where('parent' , $category->id) as $secCat)--}}
+                {{--                                <li class="my-2 mx-3">{{$secCat->name}}</li>--}}
 
 
-                                @foreach($categories->where('parent' , $secCat->id) as $thrCat)
-                                    <li class="my-2 mx-5">
-                                        {{$thrCat->name}}
-                                        <a class="btn btn-group" href="{{route('categories.edit' ,$thrCat )}}"><i class="fa fa-folder-open" aria-hidden="true"></i></a>
+                {{--                                @foreach($categories->where('parent' , $secCat->id) as $thrCat)--}}
+                {{--                                    <li class="my-2 mx-5">--}}
+                {{--                                        {{$thrCat->name}}--}}
+                {{--                                        <a class="btn btn-group" href="{{route('categories.edit' ,$thrCat )}}"><i class="fa fa-folder-open" aria-hidden="true"></i></a>--}}
 
-                                        <form action="{{route('categories.destroy' , $thrCat)}}" method="post">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button class="btn" type="submit">
-                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                            </button>
-                                        </form>
-                                    </li>
-                                @endforeach
+                {{--                                        <form action="{{route('categories.destroy' , $thrCat)}}" method="post">--}}
+                {{--                                            @method('DELETE')--}}
+                {{--                                            @csrf--}}
+                {{--                                            <button class="btn" type="submit">--}}
+                {{--                                                <i class="fa fa-trash" aria-hidden="true"></i>--}}
+                {{--                                            </button>--}}
+                {{--                                        </form>--}}
+                {{--                                    </li>--}}
+                {{--                                @endforeach--}}
 
-                            @endforeach
+                {{--                            @endforeach--}}
 
-                        @endforeach
-                    </ul>
+                {{--                        @endforeach--}}
+                {{--                    </ul>--}}
+                {{--                </div>--}}
+                <div class="row">
+
+                    @foreach($categories->where('parent' , 0) as $category)
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="card-header text-bold">
+                                    {{$category->name}}
+
+                                    <a class="btn text-primary" href="{{route('categories.edit',$category)}}">
+                                        <i class="fa fa-folder-open" aria-hidden="true"></i>
+                                    </a>
+
+                                    <form class="d-inline" action="{{route('categories.destroy' ,$category)}}"
+                                          method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn text-danger" type="submit">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <div class="card-body">
+                                    <ul>
+                                        @foreach(\App\Models\Category::all()->where('parent' , $category->id) as $sec)
+                                            <li class="my-2">
+                                                {{$sec->name}}
+                                                <a class="btn text-primary" href="{{route('categories.edit',$sec)}}">
+                                                    <i class="fa fa-folder-open" aria-hidden="true"></i>
+                                                </a>
+                                                <form class="d-inline" action="{{route('categories.destroy' ,$sec)}}"
+                                                      method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn text-danger" type="submit">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </button>
+                                                </form>
+                                            </li>
+                                            {{--                                        thr category--}}
+                                            @foreach(\App\Models\Category::all()->where('parent' , $sec->id) as $thr)
+                                                <li class="mx-3 my-2">
+                                                    {{$thr->name}}
+                                                    <a class="btn text-primary"
+                                                       href="{{route('categories.edit',$thr)}}">
+                                                        <i class="fa fa-folder-open" aria-hidden="true"></i>
+                                                    </a>
+
+                                                    <form class="d-inline"
+                                                          action="{{route('categories.destroy' ,$thr)}}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn text-danger" type="submit">
+                                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                                        </button>
+                                                    </form>
+                                                </li>
+                                            @endforeach
+
+                                            @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
+
+
                 <div class="card-footer">
                     {{$categories->render()}}
                 </div>
