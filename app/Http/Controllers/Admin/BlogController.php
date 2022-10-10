@@ -46,6 +46,8 @@ class BlogController extends Controller
             'meta_description' => 'nullable' ,
             'image' => ['required' , 'mimes:jpg,jpeg,png' , 'max:2048'],
             'status' => 'required' ,
+            'category' => 'required'
+
         ]);
 
         $file = $request->file('image') ;
@@ -59,8 +61,9 @@ class BlogController extends Controller
 
         }
         $blog = auth()->user()->blogs()->create($validate) ;
+        $blog->categories()->sync($validate['category']) ;
+
         return redirect(route('blogs.index')) ;
-//        auth()->user()->cr
     }
 
     /**
@@ -82,7 +85,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        return view('admin.blogs.create');
+        return view('admin.blogs.create' , compact('blog'));
     }
 
     /**
@@ -94,7 +97,30 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validate = $request->validate([
+            'title' => ['string' , 'required' , 'min:5' , 'max:40' , ] ,
+            'description' => ['required' , 'min:30'] ,
+            'meta_title' => 'nullable' ,
+            'meta_keyword' => 'nullable' ,
+            'meta_description' => 'nullable' ,
+            'image' => ['required' , 'mimes:jpg,jpeg,png' , 'max:2048'],
+            'status' => 'required' ,
+            'category' => 'required'
+        ]);
+
+        $file = $request->file('image') ;
+        $file->move(public_path('/blogs/'), $file->getClientOriginalName()) ;
+        $validate['image'] = '/blogs/'.$file->getClientOriginalName();
+
+        if ($validate['status'] == '0') {
+            Alert::success('Success ', 'Blog drafted!');
+        } else {
+            Alert::success('Success ', 'Blog Created!');
+
+        }
+        $blog = auth()->user()->blogs()->update($validate) ;
+        $blog->categories()->sync($validate['category']) ;
+        return redirect(route('blogs.index')) ;
     }
 
     /**

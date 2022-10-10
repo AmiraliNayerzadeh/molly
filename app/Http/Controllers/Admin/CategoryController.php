@@ -93,9 +93,28 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required' ,
+            'description' => 'nullable' ,
+            'parent' => 'required' ,
+            'image' => ['nullable' , 'mimes:png,jpg,jpeg,webp,gif'] ,
+            'meta_title' => 'nullable',
+            'meta_keyword' => 'nullable' ,
+            'meta_description' => 'nullable'
+        ]);
+
+        if ($request->file('image')){
+            $file = $request->file('image') ;
+            $file->move(public_path('/categories/') , $file->getClientOriginalName()) ;
+            $validate['image'] = '/categories/'.$file->getClientOriginalName();
+        }
+        $category->update($validate) ;
+
+        Alert::success('Success ', 'Category Updated!');
+
+        return redirect(route('categories.index')) ;
     }
 
     /**

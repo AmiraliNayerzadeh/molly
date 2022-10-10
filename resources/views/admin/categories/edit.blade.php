@@ -19,7 +19,6 @@
 
     <div class="row">
         <div class="col-12">
-
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -34,24 +33,22 @@
                     <h3 class="card-title">Edit Category <bdo class="badge badge-success">{{$category->name}}</bdo></h3>
                 </div>
                 <!-- /.card-header -->
-                <form action="{{route('categories.store')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('categories.update' , $category)}}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div class="card-body row">
+                    @method('PUT')
+                    <div class="row">
                         <section class="col-lg-9">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label class="form-label" for="name">Title:</label>
                                         <input class="form-control" type="text" name="name" id="name"
-                                               value="{{$category->name}}" placeholder="Enter the title of your article"
-                                               required>
+                                               value="{{$category->name}}" placeholder="Enter the title of your article" required>
                                     </div>
-
                                     <div class="form-group">
                                         <label class="form-label" for="title">Description: <small>optional</small>
                                         </label>
-                                        <textarea class="ckeditor form-control" name="description" id="description"
-                                                  cols="30" rows="10">{!! $category->description !!}</textarea>
+                                        <textarea class="ckeditor form-control" name="description" id="description" cols="30" rows="10">{!! $category->description !!}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -77,6 +74,7 @@
                                                     <option
                                                         {{$category->parent === $SECcategory->id ? 'selected' : ''}} value="{{$SECcategory->id}}">
                                                         -- {{$SECcategory->name}}</option>
+                                                    -- {{$SECcategory->name}}</option>
                                                 @endforeach
                                             @endforeach
                                         </select>
@@ -114,6 +112,8 @@
                             </div>
                             {{--                           End featuring image--}}
 
+
+
                             {{--                            SEO--}}
                             <div class="card">
                                 <div class="card-header">
@@ -123,45 +123,45 @@
                                     <div class="form-group">
                                         <label class="form-label" for="meta_keyword">KeyWord:</label>
                                         <input class="form-control" type="text" name="meta_keyword" id="meta_keyword"
-                                               placeholder="Separate by ," value="{{$category->meta_keyword}}">
+                                               value="{{$category->meta_keyword}}">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label" for="meta_title">Meta Title:</label>
-                                        <input class="form-control" type="text" name="meta_title" id="meta_title"
-                                               value="{{$category->meta_title}}>
+                                        <input class="form-control" type="text" name="meta_title" id="meta_title" value="{{$category->meta_title}}">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class=" form-group">
                                         <label class="form-label" for="meta_description">meta Description:</label>
                                         <textarea class="form-control" name="meta_description" id="meta_description"
-                                                  cols="30" rows="5"> {!! $category->meta_description!!}}
+                                                  cols="30" rows="5">
+                                            {!! $category->meta_description!!}
                                         </textarea>
                                     </div>
                                 </div>
                             </div>
                             {{--                           End SEO--}}
                         </section>
-                    </div>
 
-                    <div class="card-footer">
+                    <div class=" card-footer">
                         <button class="btn btn-success" type="submit">Register category</button>
                     </div>
-                </form>
 
-                <!-- /.card-body -->
+                    </section>
+
+                </form>
+                {{--                card--}}
             </div>
-            <!-- /.card -->
+            {{--        col-12--}}
         </div>
+        {{--        row--}}
     </div>
 
-    <script>
-        <script type="text/javascript">
-            $(document).ready(function () {
+
+    <script type="text/javascript">
+        $(document).ready(function () {
             $('.ckeditor').ckeditor();
-        })
-            ;
-    </script>
+        });
     </script>
 
 @endcomponent

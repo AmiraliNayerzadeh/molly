@@ -33,7 +33,7 @@
                     <h3 class="card-title">Create Blog</h3>
                 </div>
                 <!-- /.card-header -->
-                <form action="{{route('blogs.store')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('blogs.update',$blog)}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body row">
                         <section class="col-lg-9">

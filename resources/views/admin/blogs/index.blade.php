@@ -63,11 +63,11 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{route('blogs.edit' , $blogs)}}">
-                                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                <a class="btn btn-group text-primary" href="{{route('blogs.edit' , $blogs)}}">
+                                    <i class="fa fa-folder-open" aria-hidden="true"></i>
                                 </a>
 
-                                <form action="{{route('blogs.destroy' , $blogs)}}" method="post">
+                                <form class="d-inline text-danger" action="{{route('blogs.destroy' , $blogs)}}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn" type="submit">

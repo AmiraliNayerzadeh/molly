@@ -77,7 +77,7 @@
                 {{--                end blogs--}}
 
 
-                {{--                blogs--}}
+                {{--                Category--}}
                 <li class="nav-item {{Route::currentRouteName() == 'categories.index' || Route::currentRouteName() == 'categories.create' ||Route::currentRouteName() ==  'categories.edit' ? 'menu-open' : ''}} ">
                     <a href="{{route('categories.index')}}"
                        class="nav-link {{Route::currentRouteName() == 'categories.index' || Route::currentRouteName() == 'categories.create' ||Route::currentRouteName() ==  'categories.edit' ? 'active ' : ''}}">
@@ -92,11 +92,11 @@
                             <a href="{{route('categories.create')}}"
                                class="nav-link  {{Route::currentRouteName() == 'categories.create' ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Add Blog</p>
+                                <p>Add Category</p>
                             </a>
                     </ul>
                 </li>
-                {{--                end blogs--}}
+                {{--                end Category--}}
 
 
             </ul>
