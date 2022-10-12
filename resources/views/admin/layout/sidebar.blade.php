@@ -99,6 +99,28 @@
                 {{--                end Category--}}
 
 
+                {{--                UI--}}
+                <li class="nav-item {{Route::currentRouteName() == 'Ui.index' || Route::currentRouteName() == 'Ui.create' ||Route::currentRouteName() ==  'Ui.edit' ? 'menu-open' : ''}} ">
+                    <a href="{{route('Ui.index')}}"
+                       class="nav-link {{Route::currentRouteName() == 'Ui.index' || Route::currentRouteName() == 'Ui.create' ||Route::currentRouteName() ==  'Ui.edit' ? 'active ' : ''}}">
+                        <i class="nav-icon fa fa-file"></i>
+                        <p>
+                            Banner & Ui
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('Ui.create')}}"
+                               class="nav-link  {{Route::currentRouteName() == 'Ui.create' ? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New Banner</p>
+                            </a>
+                    </ul>
+                </li>
+                {{--                end UI--}}
+
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

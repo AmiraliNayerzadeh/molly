@@ -10,3 +10,6 @@ Route::resource('blogs' , \App\Http\Controllers\Admin\BlogController::class) ;
 
 
 Route::resource('categories' , \App\Http\Controllers\Admin\CategoryController::class) ;
+
+Route::resource('Ui' , \App\Http\Controllers\Admin\UiController::class) ;
+
