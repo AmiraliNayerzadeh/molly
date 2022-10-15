@@ -164,21 +164,23 @@
                         </div>
                         <div class="row">
                             <div
-                                class="banner-one-slick slick-activation-05 slick-arrow-style-one rn-slick-dot-style slick-gutter-15">
+                                class="banner-one-slick slick-activation-blog slick-arrow-style-one rn-slick-dot-style slick-gutter-15">
                                 <!-- start single product -->
                                 @foreach(\App\Models\Blog::latest()->paginate(12) as $blog)
                                     <div class="single-slide-product">
                                         <div class="product-style-one no-overlay">
                                             <div class="card-thumbnail">
                                                 <a href="product-details.html">
-                                                    <img src="{{$blog->image}}" alt="NFT_portfolio">
+                                                    <img style="height: 230px; width: auto" src="{{$blog->image}}" alt="{{$blog->title}}">
                                                 </a>
                                             </div>
                                             <div class="product-share-wrapper">
                                                 <div class="profile-share">
 
-                                                    <a href="author.html" class="avatar" data-tooltip="{{$blog->user->name}}"><img src="{{$blog->user->image}}" alt="Nft_Profile"></a>
-                                                    <a class="more-author-text" href="#">{{$blog->user->name}}</a>
+                                                    <a href="author.html" class="avatar"
+                                                       data-tooltip="{{$blog->user->name}}"><img
+                                                            src="{{$blog->user->image}}" alt="{{$blog->user->name}}"></a>
+                                                    <a class="more-author-text" href="{{route('profile',  $blog->user->name)}}">{{$blog->user->name}}</a>
                                                 </div>
                                                 <div class="share-btn share-btn-activation dropdown">
                                                     <button class="icon" type="button" data-bs-toggle="dropdown"
@@ -196,29 +198,11 @@
                                                                 data-bs-toggle="modal" data-bs-target="#shareModal">
                                                             اشتراک گذاری
                                                         </button>
-                                                        <button type="button" class="btn-setting-text report-text"
-                                                                data-bs-toggle="modal" data-bs-target="#reportModal">
-                                                            گزارش
-                                                        </button>
                                                     </div>
 
                                                 </div>
                                             </div>
-                                            <a href="product-details.html"><span
-                                                    class="product-name">پیش ادعا</span></a>
-                                            <span class="latest-bid">بالاترین پیشنهاد 1/20</span>
-                                            <div class="bid-react-area">
-                                                <div class="last-bid">0.244wETH</div>
-                                                <div class="react-area">
-                                                    <svg viewBox="0 0 17 16" fill="none" width="16" height="16"
-                                                         class="sc-bdnxRM sc-hKFxyN kBvkOu">
-                                                        <path
-                                                            d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
-                                                            stroke="currentColor" stroke-width="2"></path>
-                                                    </svg>
-                                                    <span class="number">322</span>
-                                                </div>
-                                            </div>
+                                            <a href="product-details.html"><span class="product-name">{{$blog->title}}</span></a>
                                         </div>
                                     </div>
                             @endforeach

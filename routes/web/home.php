@@ -21,10 +21,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//profile Routes
+Route::get('profile/{user:name}' , [\App\Http\Controllers\Home\ProfileController::class , 'index'])->name('profile') ;
+
+
+Route::get('mag' , [\App\Http\Controllers\Home\BlogController::class , 'archive'])->name('blog.archive') ;
+Route::get('mag/category/{blog:title}' , [\App\Http\Controllers\Home\BlogController::class , 'single'])->name('blog.single') ;
+

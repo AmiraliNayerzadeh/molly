@@ -60,6 +60,7 @@ class BlogController extends Controller
             Alert::success('Success ', 'Blog Created!');
 
         }
+
         $blog = auth()->user()->blogs()->create($validate) ;
         $blog->categories()->sync($validate['category']) ;
 
@@ -85,7 +86,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        return view('admin.blogs.create' , compact('blog'));
+        return view('admin.blogs.edit' , compact('blog'));
     }
 
     /**

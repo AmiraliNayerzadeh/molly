@@ -35,7 +35,7 @@
             imJs.vedioActivation();
             imJs.tiltJS();
         },
-        
+
         featherAtcivation: function () {
             feather.replace()
         },
@@ -53,7 +53,7 @@
                     $(scrollTop).css('opacity', '0');
                 }
             });
-            
+
             //Click event to scroll to top
             $(scrollTop).on('click', function () {
                 $('html, body').animate({
@@ -392,6 +392,59 @@
                 rtl:true,
             });
 
+
+
+
+            $('.slick-activation-blog').slick({
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                dots: true,
+                arrows: false,
+                cssEase: 'linear',
+                adaptiveHeight: true,
+                rtl:true,
+                responsive: [{
+                    breakpoint: 1399,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1,
+                    }
+                },
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 576,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            dots: true,
+                            arrows: false,
+                        }
+                    }
+                ]
+            });
+
+
+
+
+
+
+
+
+
             $('.slider-activation-banner-3').slick({
                 infinite: true,
                 slidesToShow: 1,
@@ -695,7 +748,7 @@
             });
         },
 
-        
+
         darkLight: function () {
             var styleMode = document.querySelector('meta[name="theme-style-mode"]').content;
             var cookieKey = styleMode == 1 ? 'client_dark_mode_style_cookie' : 'client_light_mode_style_cookie';
@@ -713,7 +766,7 @@
                 } else{
                     $('body').addClass('active-light-mode');
                 }
-                
+
             }
         },
         vedioActivation: function (e) {
@@ -757,14 +810,14 @@
                 gyroscopeMinAngleY: -45,
                 gyroscopeMaxAngleY: 45
             });
-            
+
         }
 
     }
 
     imJs.m();
 
-    
+
 
 
 })(jQuery, window)

@@ -38,7 +38,12 @@
                     <div class="card-body row">
                         <div class="col-lg-6">
                             <label class="form-label" for="name">Name:</label>
-                            <input class="form-control form-control-lg" type="text" name="name" id="name">
+                            <select name="name" id="name" class="form-control form-select-lg">
+                                @if(\App\Models\Ui::all()->where('name' , '!=' , 'Main'))
+                                <option value="Main">Main Sliider</option>
+                                    @endif
+                            </select>
+{{--                            <input class="form-control form-control-lg" type="text" name="name" id="name">--}}
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="image">image:</label>

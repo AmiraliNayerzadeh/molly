@@ -20,9 +20,16 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone' ,
         'password',
         'is_superuser' ,
         'is_staff',
+        'instagram' ,
+        'twitter' ,
+        'linkedin' ,
+        'about' ,
+        'image' ,
+        'banner',
     ];
 
     public function isSuperuser()

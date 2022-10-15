@@ -18,10 +18,15 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone')->unique()->nullable() ;
+            $table->text('about')->nullable() ;
             $table->boolean('is_superuser')->default(0);
             $table->boolean('is_staff')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('image')->default('/users/defult-user.png');
+            $table->string('banner')->default('/users/banner/defultBanner.jpg') ;
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedin')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

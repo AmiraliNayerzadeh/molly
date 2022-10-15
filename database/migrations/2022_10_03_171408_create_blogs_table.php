@@ -24,6 +24,14 @@ return new class extends Migration
             $table->string('meta_keyword')->nullable() ;
             $table->text('meta_description')->nullable();
             $table->boolean('status')->default(0) ;
+
+//            English Language
+            $table->string('english_title')->nullable() ;
+            $table->text('english_description')->nullable() ;
+            $table->string('english_meta_title')->nullable() ;
+            $table->string('english_meta_keyword')->nullable() ;
+            $table->text('english_meta_description')->nullable();
+
             $table->timestamps();
         });
     }

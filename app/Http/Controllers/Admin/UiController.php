@@ -14,7 +14,7 @@ class UiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Ui $ui)
     {
        $ui =  Ui::latest()->paginate(20);
         return view('admin.ui.index' , compact('ui')) ;
@@ -39,8 +39,8 @@ class UiController extends Controller
     public function store(Request $request , Ui $ui)
     {
         $valid = $request->validate([
-            'name' => 'required' ,
-            'image' => ['required','mimes:jpg,jpeg,webp,git,png'] ,
+            'name' => ['required' , 'unique:uis'],
+            'image' => ['required','mimes:jpg,jpeg,webp,gif,png'] ,
             'alt' => 'required'
         ]);
 
@@ -48,7 +48,7 @@ class UiController extends Controller
         $file->move(public_path('/asset/images/slider') , $file->getClientOriginalName()) ;
         $valid['image'] = '/asset/images/slider/'.$file->getClientOriginalName();
 
-        Ui::create($valid) ;
+        $ui = Ui::create($valid) ;
         Alert::success('Success ', 'Banner Created!');
         return redirect(route('Ui.index')) ;
 
@@ -72,9 +72,10 @@ class UiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Ui $Ui)
     {
-        //
+        return view('admin.ui.edit' , compact('Ui'));
+
     }
 
     /**
@@ -84,9 +85,21 @@ class UiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Ui $Ui)
     {
-        //
+        $valid = $request->validate([
+            'name' => '' ,
+            'image' => ['required','mimes:jpg,jpeg,webp,gif,png'] ,
+            'alt' => 'required'
+        ]);
+
+        $file = $request->file('image') ;
+        $file->move(public_path('/asset/images/slider') , $file->getClientOriginalName()) ;
+        $valid['image'] = '/asset/images/slider/'.$file->getClientOriginalName();
+
+        $Ui->update($valid) ;
+        Alert::success('Success ', 'Banner Updated!');
+        return redirect(route('Ui.index')) ;
     }
 
     /**
@@ -95,8 +108,10 @@ class UiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Ui $Ui)
     {
-        //
+        $Ui->delete() ;
+        Alert::success('Success ', 'Banner Deleted!');
+        return redirect(route('Ui.index')) ;
     }
 }

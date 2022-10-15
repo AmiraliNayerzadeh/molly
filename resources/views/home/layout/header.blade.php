@@ -162,7 +162,7 @@
                                 </div>
                             </li>
                             <li class="has-droupdown has-menu-child-item">
-                                <a class="down" href="blog.html">وبلاگ</a>
+                                <a class="down" href="{{route('blog.archive')}}">مجله</a>
                                 <ul class="submenu">
                                     <li><a href="blog-single-col.html">وبلاگ تک ستون<i
                                                 class="feather-fast-forward"></i></a></li>

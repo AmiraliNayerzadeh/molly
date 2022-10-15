@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('uis', function (Blueprint $table) {
             $table->id();
-            $table->string('name') ;
+            $table->string('name')->unique() ;
             $table->string('image') ;
             $table->string('alt');
             $table->timestamps();

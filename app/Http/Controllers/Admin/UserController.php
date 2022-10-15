@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
+use function PHPUnit\Framework\isNull;
 
 class UserController extends Controller
 {
@@ -43,14 +44,54 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:4', 'confirmed'],
+            'instagram' => 'nullable',
+            'twitter' => 'nullable',
+            'linkedin' => 'nullable',
+            'phone' => 'nullable',
+            'image' => 'nullable',
+            'banner' => 'nullable',
+            'about' => 'nullable'
         ]);
 
-         User::create([
+
+//image
+        if ($request->file('image')) {
+            $image = $request->file('image');
+            $image->move(public_path('/users/personal/'), $image->getClientOriginalName());
+            $validData['image'] = '/users/personal/' . $image->getClientOriginalName();
+        }
+//banner
+        if ($request->file('banner')) {
+            $banner = $request->file('banner');
+            dd($validData['banner']);
+            $banner->move(public_path('/users/banner/'), $banner->getClientOriginalName());
+            $validData['banner'] = '/users/banner/' . $banner->getClientOriginalName();
+        }
+
+        User::create([
             'name' => $validData['name'],
             'email' => $validData['email'],
             'password' => Hash::make($validData['password']),
+            'instagram' => $validData['instagram'],
+            'twitter' => $validData['twitter'],
+            'linkedin' => $validData['linkedin'],
+            'phone' => $validData['phone'],
+            'about' => $validData['about'],
         ]);
-         Alert::success('Success ', 'Profile Created!');
+
+        if (!isNull($request->file('banner'))) {
+            User::create([
+                'banner' => $validData['banner'],
+            ]);
+        }
+
+        if (!isNull($request->file('image'))) {
+            User::create([
+                'image' => $validData['image'],
+            ]);
+        }
+
+        Alert::success('Success ', 'Profile Created!');
         return redirect(route('users.index'));
     }
 
@@ -74,7 +115,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.users.edit',  compact('user')) ;
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -90,12 +131,40 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['nullable', 'string', 'min:4', 'confirmed'],
+            'instagram' => 'nullable',
+            'twitter' => 'nullable',
+            'linkedin' => 'nullable',
+            'phone' => 'nullable',
+            'image' => 'nullable',
+            'banner' => 'nullable',
+            'about' => 'nullable'
+
         ]);
         $user->update([
             'name' => $validData['name'],
             'email' => $validData['email'],
             'password' => Hash::make($validData['password']),
+
+            'instagram' => $validData['instagram'],
+            'twitter' => $validData['twitter'],
+            'linkedin' => $validData['linkedin'],
+            'phone' => $validData['phone'],
+            'about' => $validData['about'],
         ]);
+
+
+        if (!isNull($request->file('banner'))) {
+            $user->update([
+                'banner' => $validData['banner'],
+            ]);
+        }
+
+        if (!isNull($request->file('image'))) {
+            $user->update([
+                'image' => $validData['image'],
+            ]);
+        }
+
         Alert::success('Success ', 'Profile Updated!');
         return redirect(route('users.index'));
     }
@@ -108,8 +177,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete() ;
+        $user->delete();
         Alert::success('Success ', 'Profile Deleted!');
-        return back() ;
+        return back();
     }
 }

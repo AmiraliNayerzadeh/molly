@@ -189,6 +189,5 @@
         })
         ;
     </script>
-    </script>
 
 @endcomponent
