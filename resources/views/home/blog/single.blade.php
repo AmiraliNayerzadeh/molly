@@ -259,7 +259,7 @@
                                             <div class="category-info">
                                                 <div class="category-list">
                                                     @foreach($lastblog->categories as $cate)
-                                                    <a href="blog-details.html">{{$cate->name}} /</a>
+                                                    <a href="#">{{$cate->name}} /</a>
                                                     @endforeach
                                                 </div>
 
@@ -284,22 +284,12 @@
                             <h3 class="title">دسته ها</h3>
                             <div class="inner">
                                 <ul class="category-list ">
-                                    <li><a href="#"><span class="left-content">ارز رمزنگاری</span><span
-                                                class="count-text">300</span></a></li>
-                                    <li><a href="#"><span class="left-content">بیت کوین</span><span
-                                                class="count-text">275</span></a></li>
-                                    <li><a href="#"><span class="left-content">هنر دیجیتال</span><span
-                                                class="count-text">625</span></a></li>
-                                    <li><a href="#"><span class="left-content">UX
-                                                طراحی</span><span class="count-text">556</span></a></li>
-                                    <li><a href="#"><span class="left-content">کسب و کار</span><span
-                                                class="count-text">247</span></a></li>
-                                    <li><a href="#"><span class="left-content">برنامه
-                                                ارز دیجیتال</span><span class="count-text">457</span></a></li>
-                                    <li><a href="#"><span class="left-content">برنامه</span><span
-                                                class="count-text">423</span></a></li>
-                                    <li><a href="#"><span class="left-content">هنر</span><span
-                                                class="count-text">235</span></a></li>
+                                    @foreach(\App\Models\Category::all()->where('parent' , '==' ,'0') as $mainCategory)
+                                    <li>
+                                        <a href="#"><span class="left-content">{{$mainCategory->name}}</span></a>
+                                    </li>
+                                    @endforeach
+
                                 </ul>
                             </div>
                         </div>
@@ -307,17 +297,11 @@
                         <div class="rbt-single-widget widget_recent_entries mt--40">
                             <h3 class="title">پست های اخیر</h3>
                             <div class="inner">
+                                @foreach(\App\Models\Blog::latest()->paginate(6) as $lastblogSide)
                                 <ul>
-                                    <li><a class="d-block" href="#">بهترین نکات شرکتی
-                                            امسال بخوانید.</a><span class="cate">توسعه</span></li>
-                                    <li><a class="d-block" href="#">باید اقدام شرکتی را رفع کرد
-                                            100 مرحله.</a><span class="cate">طراحی UX</span></li>
-                                    <li><a class="d-block" href="#">100 چیز بعدی
-                                            فوراً درباره.</a><span class="cate">توسعه</span></li>
-                                    <li><a class="d-block" href="#">5 درس برتر درباره
-                                            شرکت های بزرگ، دارای شخصیت حقوقی
-                                            برای یادگیری قبل.</a><span class="cate">بازاریابی</span></li>
+                                    <li><a class="d-block" href="{{route('blog.single', $lastblogSide->title)}}">{{$lastblogSide->title}}</a></li>
                                 </ul>
+                                    @endforeach
                             </div>
                         </div>
 

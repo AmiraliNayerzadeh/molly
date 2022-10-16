@@ -170,14 +170,13 @@
                                     <div class="single-slide-product">
                                         <div class="product-style-one no-overlay">
                                             <div class="card-thumbnail">
-                                                <a href="product-details.html">
+                                                <a href="{{route('blog.single', $blog->title)}}">
                                                     <img style="height: 230px; width: auto" src="{{$blog->image}}" alt="{{$blog->title}}">
                                                 </a>
                                             </div>
                                             <div class="product-share-wrapper">
                                                 <div class="profile-share">
-
-                                                    <a href="author.html" class="avatar"
+                                                    <a href="{{route('profile',  $blog->user->name)}}" class="avatar"
                                                        data-tooltip="{{$blog->user->name}}"><img
                                                             src="{{$blog->user->image}}" alt="{{$blog->user->name}}"></a>
                                                     <a class="more-author-text" href="{{route('profile',  $blog->user->name)}}">{{$blog->user->name}}</a>
@@ -202,7 +201,7 @@
 
                                                 </div>
                                             </div>
-                                            <a href="product-details.html"><span class="product-name">{{$blog->title}}</span></a>
+                                            <a href="{{route('blog.single', $blog->title)}}"><span class="product-name">{{$blog->title}}</span></a>
                                         </div>
                                     </div>
                             @endforeach
@@ -234,13 +233,14 @@
                          class="rn-service-one color-shape-7">
                         <div class="inner">
                             <div class="icon">
-                                <img src="/asset/images/icons/shape-7.png" alt="Shape">
+                                <img src="/asset/images/icons/Decision.png" alt="Decision">
                             </div>
-                            <div class="subtitle">مرحله-01</div>
+                            <div class="subtitle">مرحله 01</div>
                             <div class="content">
-                                <h4 class="title"><a href="#">کیف پول خود را تنظیم کنید</a></h4>
-                                <p class="description">ویژگی‌ها و اجزای قدرتمند، که نورون را متمایز می‌کند،
-                                    به راحتی قابل تنظیم و مقیاس پذیر است.</p>
+                                <h4 class="title">تصمیم بگیرید</h4>
+                                <p class="description">
+                                    برای هرکسی سخته که کسب و کار سنتی خودشو بخواد به سمت دنیای زیبای دیجیتال بیاره. اما از ما میشنوین ارزشش رو داره!
+                                </p>
                                 <a class="read-more-button" href="#"><i class="feather-arrow-left"></i></a>
                             </div>
                         </div>
