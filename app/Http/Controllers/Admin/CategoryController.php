@@ -44,7 +44,7 @@ class CategoryController extends Controller
             'description' => 'nullable' ,
             'parent' => 'required' ,
             'image' => ['nullable' , 'mimes:png,jpg,jpeg,webp,gif'] ,
-             'meta_title' => 'nullable',
+            'meta_title' => 'nullable',
             'meta_keyword' => 'nullable' ,
             'meta_description' => 'nullable'
         ]);
@@ -59,8 +59,6 @@ class CategoryController extends Controller
         Alert::success('Success ', 'Category Created!');
 
         return redirect(route('categories.index')) ;
-
-
 
     }
 
@@ -113,8 +111,7 @@ class CategoryController extends Controller
         $category->update($validate) ;
 
         Alert::success('Success ', 'Category Updated!');
-
-        return redirect(route('categories.index')) ;
+        return redirect(route(' gallery_categories.index')) ;
     }
 
     /**

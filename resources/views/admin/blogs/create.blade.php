@@ -65,23 +65,29 @@
                                 <div class="card-body">
                                     @foreach(\App\Models\Category::all()->where('parent' , 0) as $category)
                                         <div class="form-check text-bold my-1">
-                                            <input name="category[]" class="form-check-input" type="checkbox" value="{{$category->id}}" id="{{$category->name}}">
+                                            <input name="category[]" class="form-check-input" type="checkbox"
+                                                   value="{{$category->id}}" id="{{$category->name}}">
                                             <label class="form-check-label"
                                                    for="{{$category->name}}">{{$category->name}}</label>
                                         </div>
                                         @foreach(\App\Models\Category::all()->where('parent' , $category->id) as $SECcategory)
                                             <div class="form-check mx-3 my-2">
-                                                <input name="category[]" class="form-check-input" type="checkbox" value="{{$SECcategory->id}}" id="{{$SECcategory->name}}">
-                                                <label class="form-check-label" for="{{$SECcategory->name}}">{{$SECcategory->name}}</label>
+                                                <input name="category[]" class="form-check-input" type="checkbox"
+                                                       value="{{$SECcategory->id}}" id="{{$SECcategory->name}}">
+                                                <label class="form-check-label"
+                                                       for="{{$SECcategory->name}}">{{$SECcategory->name}}</label>
                                             </div>
+
+                                            @foreach(\App\Models\Category::all()->where('parent' , $SECcategory->id) as $THRcategory)
+                                                <div class="form-check mx-5 my-2">
+                                                    <input name="category[]" class="form-check-input" type="checkbox"
+                                                           value="{{$THRcategory->id}}" id="{{$THRcategory->name}}">
+                                                    <label class="form-check-label"
+                                                           for="{{$THRcategory->name}}">{{$THRcategory->name}}</label>
+                                                </div>
+                                            @endforeach
                                         @endforeach
 
-                                        @foreach(\App\Models\Category::all()->where('parent' , $SECcategory->id) as $THRcategory)
-                                            <div class="form-check mx-5 my-2">
-                                                <input name="category[]" class="form-check-input" type="checkbox" value="{{$THRcategory->id}}" id="{{$THRcategory->name}}">
-                                                <label class="form-check-label" for="{{$THRcategory->name}}">{{$THRcategory->name}}</label>
-                                            </div>
-                                        @endforeach
                                     @endforeach
                                 </div>
                             </div>
@@ -187,7 +193,7 @@
             $(document).ready(function () {
             $('.ckeditor').ckeditor();
         })
-        ;
+            ;
     </script>
 
 @endcomponent

@@ -35,36 +35,8 @@
                         </div>
                     </div>
                 </div>
-                {{--                <div class="card-body">--}}
-                {{--                    <ul>--}}
-                {{--                        @foreach($categories->where('parent' , 0) as $category)--}}
-                {{--                            <li class="my-2 text-bold">{{$category->name}}</li>--}}
-                {{--                            @foreach($categories->where('parent' , $category->id) as $secCat)--}}
-                {{--                                <li class="my-2 mx-3">{{$secCat->name}}</li>--}}
 
-
-                {{--                                @foreach($categories->where('parent' , $secCat->id) as $thrCat)--}}
-                {{--                                    <li class="my-2 mx-5">--}}
-                {{--                                        {{$thrCat->name}}--}}
-                {{--                                        <a class="btn btn-group" href="{{route('categories.edit' ,$thrCat )}}"><i class="fa fa-folder-open" aria-hidden="true"></i></a>--}}
-
-                {{--                                        <form action="{{route('categories.destroy' , $thrCat)}}" method="post">--}}
-                {{--                                            @method('DELETE')--}}
-                {{--                                            @csrf--}}
-                {{--                                            <button class="btn" type="submit">--}}
-                {{--                                                <i class="fa fa-trash" aria-hidden="true"></i>--}}
-                {{--                                            </button>--}}
-                {{--                                        </form>--}}
-                {{--                                    </li>--}}
-                {{--                                @endforeach--}}
-
-                {{--                            @endforeach--}}
-
-                {{--                        @endforeach--}}
-                {{--                    </ul>--}}
-                {{--                </div>--}}
                 <div class="row">
-
                     @foreach($categories->where('parent' , 0) as $category)
                         <div class="col-lg-3">
                             <div class="card">

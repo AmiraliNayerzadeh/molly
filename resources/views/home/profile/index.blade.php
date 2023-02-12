@@ -80,7 +80,7 @@
                         <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="product-style-one no-overlay with-placeBid">
                                 <div class="card-thumbnail">
-                                    <a href="product-details.html">
+                                    <a href="{{route('blog.single' , $blog->title)}}">
                                         <img src="{{$blog->image}}" alt="{{$blog->name}}">
                                     </a>
                                  </div>
@@ -92,7 +92,7 @@
                                     </div>
                                 </div>
                                 <h4>
-                                    <a href="#"><span class="product-name">{{$blog->title}}</span></a>
+                                    <a href="{{route('blog.single' , $blog->title)}}"><span class="product-name">{{$blog->title}}</span></a>
                                 </h4>
                             </div>
                         </div>

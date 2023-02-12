@@ -124,6 +124,36 @@
                 {{--                end Category--}}
 
 
+                {{--                Category--}}
+                <li class="nav-item {{Route::currentRouteName() == 'projects.index' || Route::currentRouteName() == 'projects.create' ||Route::currentRouteName() ==  'projects.edit' ? 'menu-open' : ''}} ">
+                    <a href="{{route('projects.index')}}"
+                       class="nav-link {{Route::currentRouteName() == 'projects.index' || Route::currentRouteName() == 'projects.create' ||Route::currentRouteName() ==  'projects.edit' ? 'active ' : ''}}">
+                        <i class="nav-icon fa fa-sitemap"></i>
+                        <p>
+                            Projects
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('projects.index')}}"
+                               class="nav-link  {{Route::currentRouteName() == 'projects.index' ? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Projects</p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('projects.create')}}"
+                               class="nav-link  {{Route::currentRouteName() == 'projects.create' ? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Project</p>
+                            </a>
+                    </ul>
+                </li>
+                {{--                end Category--}}
+
+
                 {{--                UI--}}
                 <li class="nav-item {{Route::currentRouteName() == 'Ui.index' || Route::currentRouteName() == 'Ui.create' ||Route::currentRouteName() ==  'Ui.edit' ? 'menu-open' : ''}} ">
                     <a href="{{route('Ui.index')}}"

@@ -1,82 +1,99 @@
 <!DOCTYPE html>
-<html lang="fa-IR" dir="rtl">
-
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>خانه پیشفرض || نورون - قالب فروشگاهی NFT </title>
-    <meta name="robots" content="noindex, follow"/>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="author" content="DSAThemes"/>
+    <meta name="description" content="OLMO - Software, App, SaaS & Startup Landing Pages Pack"/>
+    <meta name="keywords"
+          content="Responsive, HTML5, DSAThemes, One Page, Landing, Software, Mobile App, SaaS, Startup, Creative, Freelancers, Digital Product">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <meta name="theme-style-mode" content="1"> <!-- 0 == light, 1 == dark -->
+    <!-- SITE TITLE -->
+    <title>OLMO - Software, App, SaaS & Startup Landing Pages Pack</title>
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/asset/images/favicon.png">
-    <!-- CSS
-    ============================================ -->
-    <link rel="stylesheet" href="/asset/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="/asset/css/vendor/slick.css">
-    <link rel="stylesheet" href="/asset/css/vendor/slick-theme.css">
-    <link rel="stylesheet" href="/asset/css/vendor/nice-select.css">
-    <link rel="stylesheet" href="/asset/css/plugins/feature.css">
-    <link rel="stylesheet" href="/asset/css/plugins/jquery-ui.min.css">
-    <link rel="stylesheet" href="/asset/css/vendor/odometer.css">
+    <!-- FAVICON AND TOUCH ICONS -->
+    <link rel="shortcut icon" href="asset/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="asset/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="152x152" href="asset/images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="asset/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="asset/images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" href="asset/images/apple-touch-icon.png">
+    <link rel="icon" href="asset/images/apple-touch-icon.png" type="image/x-icon">
 
-    <!-- Style css -->
-    <link rel="stylesheet" href="/asset/fonts/styles-fa-num/iran-yekan.css">
-    <link rel="stylesheet" href="/asset/fonts/styles-fa-num/azarmehr.css">
-    <link rel="stylesheet" href="/asset/css/rtl-style.css">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="{{asset('asset/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- FONT ICONS -->
+    <link href="{{asset('asset/css/flaticon.css')}}" rel="stylesheet">
+
+    <!-- PLUGINS STYLESHEET -->
+    <link href="{{asset('asset/css/menu.css')}}" rel="stylesheet">
+    <link id="effect" href="{{asset('asset/css/dropdown-effects/fade-down.css')}}" media="all" rel="stylesheet">
+    <link href="{{asset('asset/css/magnific-popup.css')}}" rel="stylesheet">
+    <link href="{{asset('asset/css/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('asset/css/owl.theme.default.min.css')}}" rel="stylesheet">
+
+    <!-- ON SCROLL ANIMATION -->
+    <link href="{{asset('asset/css/animate.css')}}" rel="stylesheet">
+
+    <!-- TEMPLATE CSS -->
+    <link href="{{asset('asset/css/style.css')}}" rel="stylesheet">
+
+    <!-- RESPONSIVE CSS -->
+    <link href="{{asset('asset/css/responsive.css')}}" rel="stylesheet">
+
+    <!-- Kalameh font CSS -->
+    <link href="{{asset('asset/css/kalameh.css')}}" rel="stylesheet">
+
 </head>
+<body>
+<!-- PRELOADER SPINNER
+============================================= -->
+<div id="loading" class="orange-red-loading">
+    <div id="loading-center">
+        <div id="loading-center-absolute">
+            <div class="object" id="object_one"></div>
+            <div class="object" id="object_two"></div>
+            <div class="object" id="object_three"></div>
+            <div class="object" id="object_four"></div>
+        </div>
+    </div>
+</div>
 
-<body class="template-color-1 nft-body-connect">
-
-<!-- HEADER -->
-@include('.home.layout.header')
-<!-- /.HEADER -->
-        @yield('content')
-
-@include('.home.layout.footer')
+<!-- PAGE CONTENT
+============================================= -->
+<div id="page" class="page rtl-direction">
 
 
+    @include('.home.layout.header')
+    @yield('content')
+    @include('.home.layout.footer')
 
-<!-- /.content-wrapper -->
+</div>
+<!-- EXTERNAL SCRIPTS
+============================================= -->
+<script src="{{asset('asset/js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('asset/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('asset/js/modernizr.custom.js')}}"></script>
+<script src="{{asset('asset/js/jquery.easing.js')}}"></script>
+<script src="{{asset('asset/js/jquery.appear.js')}}"></script>
+<script src="{{asset('asset/js/jquery.scrollto.js')}}"></script>
+<script src="{{asset('asset/js/menu.js')}}"></script>
+<script src="{{asset('asset/js/imagesloaded.pkgd.min.js')}}"></script>
+<script src="{{asset('asset/js/isotope.pkgd.min.js')}}"></script>
+<script src="{{asset('asset/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('asset/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('asset/js/quick-form.js')}}"></script>
+<script src="{{asset('asset/js/request-form.js')}}"></script>
+<script src="{{asset('asset/js/jquery.validate.min.js')}}"></script>
+<script src="{{asset('asset/js/jquery.ajaxchimp.min.js')}}"></script>
+<script src="{{asset('asset/js/wow.js')}}"></script>
 
+<!-- Custom Script -->
+<script src="{{asset('asset/js/custom.js')}}"></script>
 </body>
-<!-- End Top To Bottom Area  -->
-<!-- JS ============================================ -->
-<script src="/asset/js/vendor/jquery.js"></script>
-<script src="/asset/js/vendor/jquery.nice-select.min.js"></script>
-<script src="/asset/js/vendor/jquery-ui.js"></script>
-<script src="/asset/js/vendor/modernizer.min.js"></script>
-<script src="/asset/js/vendor/feather.min.js"></script>
-<script src="/asset/js/vendor/slick.min.js"></script>
-<script src="/asset/js/vendor/bootstrap.min.js"></script>
-<script src="/asset/js/vendor/sal.min.js"></script>
-<script src="/asset/js/vendor/particles.js"></script>
-<script src="/asset/js/vendor/jquery.style.swicher.js"></script>
-<script src="/asset/js/vendor/js.cookie.js"></script>
-<script src="/asset/js/vendor/count-down.js"></script>
-<script src="/asset/js/vendor/isotop.js"></script>
-<script src="/asset/js/vendor/imageloaded.js"></script>
-<script src="/asset/js/vendor/backtoTop.js"></script>
-<script src="/asset/js/vendor/odometer.js"></script>
-<script src="/asset/js/vendor/jquery-appear.js"></script>
-<script src="/asset/js/vendor/scrolltrigger.js"></script>
-<script src="/asset/js/vendor/jquery.custom-file-input.js"></script>
-<script src="/asset/js/vendor/savePopup.js"></script>
-<script src="/asset/js/vendor/vanilla.tilt.js"></script>
-
-<!-- main JS -->
-<script src="/asset/js/main.js"></script>
-<!-- Meta Mask  -->
-<script src="/asset/js/vendor/web3.min.js"></script>
-<script src="/asset/js/vendor/maralis.js"></script>
-<script src="/asset/js/vendor/nft.js"></script>
-
-<script>
-
-
-</script>
-
 </html>
