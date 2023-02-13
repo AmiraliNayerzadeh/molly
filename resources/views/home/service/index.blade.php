@@ -11,33 +11,20 @@
                 <div class="col-md-7 col-lg-6 order-last order-md-2">
                     <div class="txt-block left-column wow fadeInRight">
 
-                        <!-- Section ID -->
-                        <span class="section-id txt-upcase">Pixel Perfect</span>
-
                         <!-- Title -->
                         <h1 class="h2-xs">{{$category->name}}</h1>
 
+                        @foreach(\App\Models\Category::all()->where('parent' , $category->id) as $sub)
                         <!-- List -->
                         <ul class="simple-list">
-
                             <li class="list-item">
-                                <p class="p-lg">Fringilla risus, luctus mauris orci auctor euismod iaculis luctus
-                                    magna purus pretium ligula purus undo quaerat tempor sapien rutrum mauris quaerat ultrice
-                                </p>
+                                <a href="">
+                                    {{$sub->name}}
+                                </a>
                             </li>
-
-                            <li class="list-item">
-                                <p class="p-lg">Quaerat sodales sapien euismod purus blandit</p>
-                            </li>
-
-                            <li class="list-item">
-                                <p class="p-lg">Nemo ipsam egestas volute turpis dolores undo ultrice aliquam
-                                    quaerat at sodales sapien purus
-                                </p>
-                            </li>
-
                         </ul>
-
+                            @endforeach
+                        <a class="btn btn-purple" href="">در خواست خدمات {{$category->name}} از مولی </a>
                     </div>
                 </div>	<!-- END TEXT BLOCK -->
 
@@ -45,7 +32,7 @@
                 <!-- IMAGE BLOCK -->
                 <div class="col-md-5 col-lg-6 order-first order-md-2">
                     <div class="rel img-block right-column wow fadeInLeft">
-                        <img class="img-fluid" src="/asset/images/img-07.png" alt="content-image">
+                        <img class="img-fluid" src="{{$category->image}}" alt="content-image">
                     </div>
                 </div>
 
@@ -61,221 +48,30 @@
     ============================================= -->
     <section id="content-3" class="bg-snow content-3 wide-60 content-section division">
         <div class="container">
-
-
             <!-- TOP ROW -->
             <div class="top-row pb-50">
                 <div class="row d-flex align-items-center">
-
-
-                    <!-- IMAGE BLOCK -->
-                    <div class="col-md-5 col-lg-6">
-                        <div class="img-block left-column wow fadeInRight">
-                            <img class="img-fluid" src="/asset/images/img-09.png" alt="content-image">
-                        </div>
-                    </div>
-
-
                     <!-- TEXT BLOCK -->
-                    <div class="col-md-7 col-lg-6">
+                    <div class="col-md-12 col-lg-12">
                         <div class="txt-block right-column wow fadeInLeft">
-
-                            <!-- Section ID -->
-                            <span class="section-id txt-upcase">Totally Optimized</span>
-
                             <!-- Title -->
-                            <h2 class="h2-xs">Work smarter with powerful features</h2>
+                            <h3 class="h2-xs">{{$category->name}}  با گروه توسعه مولی </h3>
 
                             <!-- Text -->
-                            <p class="p-lg">Quaerat sodales sapien euismod blandit at vitae ipsum primis undo and cubilia
-                                laoreet augue and luctus magna dolor luctus at egestas sapien vitae nemo egestas volute and
-                                turpis dolores aliquam quaerat sodales a sapien
-                            </p>
+
+                            {!! $category->description !!}
 
                             <!-- Tools List -->
-                            <div class="tools-list ico-40 mt-30">
-
-                                <!-- Text -->
-                                <h6 class="h6-xl">Technologies We Use:</h6>
-
-                                <!-- Icons -->
-                                <span class="flaticon-html-5 text-black-50"></span>
-                                <span class="flaticon-css-3 text-black-50"></span>
-                                <span class="flaticon-wordpress-logo text-black-50"></span>
-                                <span class="flaticon-js text-black-50"></span>
-                                <span class="flaticon-diamond-1 text-black-50"></span>
-
-                            </div>
-
                         </div>
                     </div>	<!-- END TEXT BLOCK -->
-
 
                 </div>
             </div>	<!-- END TOP ROW -->
 
 
-            <!-- BOTTOM ROW -->
-            <div class="bottom-row">
-                <div class="row d-flex align-items-center">
-
-
-                    <!-- TEXT BLOCK -->
-                    <div class="col-lg-6 order-last order-lg-2">
-                        <div class="txt-block slim-column left-column wow fadeInRight">
-
-                            <!-- TEXT BOX -->
-                            <div class="txt-box mb-20">
-
-                                <!-- Title -->
-                                <h5 class="h5-lg">Advanced Performance Made Easy</h5>
-
-                                <!-- Text -->
-                                <p class="p-lg">Quaerat sodales sapien euismod blandit at vitae ipsum primis undo and
-                                    cubilia laoreet augue and luctus magna dolor luctus at egestas sapien vitae nemo egestas
-                                    volute and turpis dolores aliquam quaerat sodales a sapien
-                                </p>
-
-                            </div>
-
-                            <!-- TEXT BOX -->
-                            <div class="txt-box">
-
-                                <!-- Title -->
-                                <h5 class="h5-lg">The Complete Software Solution</h5>
-
-                                <!-- List -->
-                                <ul class="simple-list">
-
-                                    <li class="list-item">
-                                        <p class="p-lg">Fringilla risus, luctus mauris auctor euismod an iaculis luctus
-                                            magna purus pretium ligula purus and quaerat
-                                        </p>
-                                    </li>
-
-                                    <li class="list-item">
-                                        <p class="p-lg">Nemo ipsam egestas volute turpis dolores undo ultrice aliquam quaerat
-                                            at sodales sapien purus
-                                        </p>
-                                    </li>
-
-                                </ul>
-
-                            </div>	<!-- END TEXT BOX -->
-
-                        </div>
-                    </div>	<!-- END TEXT BLOCK -->
-
-
-                    <!-- CB WRAPPER -->
-                    <div class="col-lg-6 order-first order-lg-2">
-                        <div class="cb-wrapper">
-
-                            <!-- CB HOLDER -->
-                            <div class="cb-holder wow fadeInLeft">
-
-                                <!-- CB BOX #1 -->
-                                <div class="cb-single-box">
-                                    <p class="p-lg cb-header">New Customers</p>
-                                    <h2 class="h2-title-xs statistic-number"><sup>+</sup><span class="count-element">784</span></h2>
-                                    <p class="p-md mt-5 ico-10">
-                                        <span class="green-color"><span class="flaticon-"></span> 4.6%</span> vs last 7 days
-                                    </p>
-                                </div>
-
-                                <hr class="divider">
-
-                                <!-- CB BOX #2 -->
-                                <div class="cb-single-box">
-                                    <ul class="simple-list">
-                                        <li class="list-item">
-                                            <p class="p-md">Fringilla risus luctus mauris auctor and purus euismod purus</p>
-                                        </li>
-
-                                        <li class="list-item">
-                                            <p class="p-md">Nemo ipsam volute turpis dolores ut quaerat sodales sapien</p>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <!-- CB BOX #3 -->
-                                <div class="cb-single-box cb-box-rounded bg-green white-color mt-25">
-                                    <h4 class="h4-lg">98.245</h4>
-                                    <p class="p-lg">Ligula risus auctor tempus</p>
-                                </div>
-
-                            </div>	<!-- END CB HOLDER -->
-
-
-                            <!-- CB SHAPE -->
-                            <div class="cb-shape-1">
-                                <img class="img-fluid" src="/asset/images/bg-shape-1.png" alt="content-image">
-                            </div>
-
-                            <!-- CB SHAPE -->
-                            <div class="cb-shape-2">
-                                <img class="img-fluid" src="/asset/images/bg-shape-2.png" alt="content-image">
-                            </div>
-
-
-                        </div>
-                    </div>	<!-- END CB WRAPPER -->
-
-
-                </div>
-            </div>	<!-- END BOTTOM ROW -->
-
-
         </div>	   <!-- End container -->
     </section>	<!-- END CONTENT-3 -->
 
-
-
-
-    <!-- CONTENT-10
-    ============================================= -->
-    <section id="content-10" class="content-10 wide-100 content-section division">
-        <div class="container">
-
-
-            <!-- SECTION TITLE -->
-            <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-8">
-                    <div class="section-title title-02 mb-60">
-
-                        <!-- Section ID -->
-                        <span class="section-id txt-upcase">Extremely Flexible</span>
-
-                        <!-- Title -->
-                        <h2 class="h2-xs">Discover powerful features to boost your productivity</h2>
-
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- IMAGE BLOCK -->
-            <div class="row">
-                <div class="col">
-                    <div class="img-block text-center video-preview wow fadeInUp">
-
-                        <!-- Play Icon -->
-                        <a class="video-popup1" href="https://www.youtube.com/embed/SZEflIVnhH8">
-                            <div class="video-btn video-btn-xl bg-pink ico-90">
-                                <div class="video-block-wrapper"><span class="flaticon-play-button"></span></div>
-                            </div>
-                        </a>
-
-                        <!-- Preview Image -->
-                        <img class="img-fluid" src="/asset/images/dashboard-07.png" alt="video-preview">
-
-                    </div>
-                </div>
-            </div>
-
-
-        </div>	   <!-- End container -->
-    </section>	<!-- END CONTENT-10 -->
 
 
 

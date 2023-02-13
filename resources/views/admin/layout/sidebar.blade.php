@@ -153,6 +153,36 @@
                 </li>
                 {{--                end Category--}}
 
+                {{--                Customer--}}
+                <li class="nav-item {{Route::currentRouteName() == 'customers.index' || Route::currentRouteName() == 'customers.create' ||Route::currentRouteName() ==  'customers.edit' ? 'menu-open' : ''}} ">
+                    <a href="{{route('customers.index')}}"
+                       class="nav-link {{Route::currentRouteName() == 'customers.index' || Route::currentRouteName() == 'customers.create' ||Route::currentRouteName() ==  'customers.edit' ? 'active ' : ''}}">
+                        <i class="nav-icon fa fa-users"></i>
+                        <p>
+                            Customers
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('customers.index')}}"
+                               class="nav-link  {{Route::currentRouteName() == 'customers.index' ? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Customers</p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('customers.create')}}"
+                               class="nav-link  {{Route::currentRouteName() == 'customers.create' ? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Customer</p>
+                            </a>
+                    </ul>
+                </li>
+                {{--                end Customer--}}
+
+
 
                 {{--                UI--}}
                 <li class="nav-item {{Route::currentRouteName() == 'Ui.index' || Route::currentRouteName() == 'Ui.create' ||Route::currentRouteName() ==  'Ui.edit' ? 'menu-open' : ''}} ">

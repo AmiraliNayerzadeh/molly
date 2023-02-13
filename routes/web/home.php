@@ -22,6 +22,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+Route::get('/contacts', [App\Http\Controllers\HomeController::class, 'contacts'])->name('contacts');
+Route::get('/Counseling', [App\Http\Controllers\HomeController::class, 'Counseling'])->name('Counseling');
+Route::get('/faqs', [App\Http\Controllers\HomeController::class, 'faqs'])->name('faqs');
 
 
 //profile Routes
@@ -34,5 +37,6 @@ Route::get('mag' , [\App\Http\Controllers\Home\BlogController::class , 'archive'
 Route::get('mag/category/{blog:title}' , [\App\Http\Controllers\Home\BlogController::class , 'single'])->name('blog.single') ;
 
 
+Route::get('service' , [\App\Http\Controllers\Home\ServiceController::class , 'main'])->name('service.main') ;
 Route::get('service/{category:name}' , [\App\Http\Controllers\Home\ServiceController::class , 'index'])->name('service.index') ;
 

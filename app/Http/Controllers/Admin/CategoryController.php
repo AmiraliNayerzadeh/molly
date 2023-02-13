@@ -106,12 +106,12 @@ class CategoryController extends Controller
         if ($request->file('image')){
             $file = $request->file('image') ;
             $file->move(public_path('/categories/') , $file->getClientOriginalName()) ;
-            $validate['image'] = '/categories/'.$file->getClientOriginalName();
         }
         $category->update($validate) ;
 
         Alert::success('Success ', 'Category Updated!');
-        return redirect(route(' gallery_categories.index')) ;
+        return redirect(route('categories.index')) ;
+
     }
 
     /**

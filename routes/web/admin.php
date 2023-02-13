@@ -14,5 +14,8 @@ Route::resource('categories' , \App\Http\Controllers\Admin\CategoryController::c
 
 Route::resource('projects' , \App\Http\Controllers\Admin\ProjectController::class) ;
 
+
+Route::resource('customers' , \App\Http\Controllers\Admin\CustomerController::class) ;
+
 Route::resource('Ui' , \App\Http\Controllers\Admin\UiController::class) ;
 

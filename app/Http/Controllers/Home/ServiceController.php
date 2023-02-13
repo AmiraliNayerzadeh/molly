@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+
+    public function main()
+    {
+        return view('home.service.main') ;
+    }
+
     public function index(Category $category)
     {
         return view('home.service.index' , compact('category'));
