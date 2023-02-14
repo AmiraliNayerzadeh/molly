@@ -749,8 +749,8 @@
 
                         <!-- Buttons Group -->
                         <div class="btns-group mb-30">
-                            <a href="download.html" class="btn btn-orange-red tra-orange-red-hover mr-15">شروع کنید</a>
-                            <a href="pricing.html" class="btn btn-tra-grey tra-orange-red-hover">مشاهده نمونه کارها</a>
+                            <a href="{{route('Counseling')}}" class="btn btn-orange-red tra-orange-red-hover mr-15">شروع کنید</a>
+                            <a href="{{route('project.index')}}" class="btn btn-tra-grey tra-orange-red-hover">مشاهده نمونه کارها</a>
                         </div>
                     </div>
                 </div>	<!-- END CONTENT TXT -->

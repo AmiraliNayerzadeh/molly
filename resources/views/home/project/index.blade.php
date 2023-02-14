@@ -1,80 +1,90 @@
 @component('.home.layout.contetnt')
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Start Banner
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <section class="banner-section two inner">
-        <div class="banner-element-four two">
-            <img src="/asset/images/element/element-5.png" alt="element">
-        </div>
-        <div class="banner-element-five two">
-            <img src="/asset/images/element/element-7.png" alt="element">
-        </div>
-        <div class="banner-element-nineteen two">
-            <img src="/asset/images/element/element-6.png" alt="element">
-        </div>
-        <div class="banner-element-twenty-two two">
-            <img src="/asset/images/element/element-69.png" alt="element">
-        </div>
-        <div class="banner-element-twenty-three two">
-            <img src="/asset/images/element/element-70.png" alt="element">
-        </div>
+
+    <!-- PROJECTS-1
+			============================================= -->
+    <section id="projects-1" class="wide-50 inner-page-hero projects-section division">
         <div class="container">
-            <div class="row justify-content-center align-items-center mb-30-none">
-                <div class="col-xl-12 mb-30">
-                    <div class="banner-content two">
-                        <div class="banner-content-header">
-                            <h2 class="title">پروژه ها</h2>
-                        </div>
+
+
+            <!-- SECTION TITLE -->
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-8">
+                    <div class="section-title title-01 mb-80">
+                        <!-- Title -->
+                        <h2 class="h2-md">پروژه ها توسعه داده شده توسط مولی </h2>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        End Banner
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Start Scroll-To-Top
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a href="#" class="scrollToTop"><i class="las la-angle-double-up"></i></a>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        End Scroll-To-Top
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!-- PROJECTS-1 WRAPPER -->
+            <div class="row">
+                <div class="col gallery-items-list">
+                    <div class="masonry-wrap grid-loaded">
 
+                    @foreach($project as $projects)
+                        <!-- PROJECT #1 -->
+                            <div class="project-details masonry-image">
 
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Start Gallery
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <section class="gallery-section ptb-120">
-        <div class="container">
-            <div class="gallery-filter-wrapper">
-                <div class="grid two">
-                    <div class="grid-item two marketing">
-                        @foreach($project as $projects)
-                        <div class="gallery-item">
-                            <div class="gallery-thumb">
-                                <img src="{{$projects->featuring}}" alt="gallery">
-                                <div class="gallery-thumb-overlay">
-                                    <div class="gallery-icon">
-                                        <a class="img-popup"  href="/asset/images/gallery/gallery-9.png"><img src="{{$projects->clientLogo}}" alt="{{$projects->client}}"></a>
+                                <!-- Image -->
+                                <div class="project-preview rel">
+                                    <div class="hover-overlay">
+                                        <a href="{{route('project.single' , $projects)}}">
+                                            <img class="img-fluid" src="{{$projects->featuring}}"
+                                                 alt="{{$projects->title}}"/>
+                                        </a>
+                                        <div class="item-overlay"></div>
                                     </div>
                                 </div>
+
+                                <!-- Text -->
+                                <div class="project-txt">
+                                    <!-- Link -->
+                                    <h5 class="h5-lg">
+                                        <a href="project-details.html">
+                                            {{$projects->title}}
+                                        </a>
+                                    </h5>
+                                </div>
+
                             </div>
-                            <div class="gallery-content text-right">
-                                <span class="sub-title">{{$projects->client}}</span>
-                                <h3 class="title"><a href="project-details.html">{{$projects->title}}</a></h3>
-                            </div>
-                        </div>
+                            <!-- END PROJECT #1 -->
                         @endforeach
+
+
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        End Gallery
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            </div>    <!-- END PROJECTS-1 WRAPPER -->
+
+
+        </div>       <!-- End container -->
+    </section>    <!-- END PROJECTS-1 -->
+
+
+
+
+    <!-- PAGE PAGINATION
+    ============================================= -->
+    <div class="pb-100 page-pagination division">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="Page navigation example">
+                        {{$project->render()}}
+                    </nav>
+                </div>
+            </div>  <!-- End row -->
+        </div> <!-- End container -->
+    </div>    <!-- END PAGE PAGINATION -->
+
+
+
+
+    <!-- CALL TO ACTION-3
+    ============================================= -->
+    @include('home.component.moshavere')
+    <!-- END CALL TO ACTION-3 -->
+
+
 
 @endcomponent

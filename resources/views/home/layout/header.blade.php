@@ -43,7 +43,7 @@
                         </li>
 
                         <!-- SIMPLE NAVIGATION LINK -->
-                        <li class="nl-simple" aria-haspopup="true"><a href="#features-8">نمونه کارها</a></li>
+                        <li class="nl-simple" aria-haspopup="true"><a href="{{route('project.index')}}">نمونه کارها</a></li>
 
 
                         <!-- SIMPLE NAVIGATION LINK -->
@@ -52,18 +52,8 @@
 
                         <!-- HEADER BUTTON -->
                         <li class="nl-simple" aria-haspopup="true">
-                            <a href="#content-4" class="btn btn-tra-white orange-red-hover last-link">درخواست مشاوره</a>
+                            <a href="{{route('Counseling')}}" class="btn btn-tra-white orange-red-hover last-link">درخواست مشاوره</a>
                         </li>
-
-
-                        <!-- HEADER SOCIAL LINKS
-                        <li class="nl-simple white-color header-socials ico-20 clearfix" aria-haspopup="true">
-                            <span><a href="#" class="ico-facebook"><span class="flaticon-facebook"></span></a></span>
-                            <span><a href="#" class="ico-twitter"><span class="flaticon-twitter"></span></a></span>
-                            <span><a href="#" class="ico-instagram"><span class="flaticon-instagram"></span></a></span>
-                            <span><a href="#" class="ico-dribbble"><span class="flaticon-dribbble"></span></a></span>
-                        </li> -->
-
 
                     </ul>
                 </nav>	<!-- END MAIN MENU -->

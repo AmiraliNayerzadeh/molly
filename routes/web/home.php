@@ -23,7 +23,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/contacts', [App\Http\Controllers\HomeController::class, 'contacts'])->name('contacts');
-Route::get('/Counseling', [App\Http\Controllers\HomeController::class, 'Counseling'])->name('Counseling');
+
+Route::get('/Counseling', [\App\Http\Controllers\Home\CounselingController::class, 'Counseling'])->name('Counseling');
+
 Route::get('/faqs', [App\Http\Controllers\HomeController::class, 'faqs'])->name('faqs');
 
 
@@ -31,6 +33,7 @@ Route::get('/faqs', [App\Http\Controllers\HomeController::class, 'faqs'])->name(
 Route::get('profile/{user:name}' , [\App\Http\Controllers\Home\ProfileController::class , 'index'])->name('profile') ;
 
 Route::get('/projects' , [\App\Http\Controllers\Home\ProjectController::class , 'index'])->name('project.index') ;
+Route::get('/projects/{project:title}' , [\App\Http\Controllers\Home\ProjectController::class , 'single'])->name('project.single') ;
 
 
 Route::get('mag' , [\App\Http\Controllers\Home\BlogController::class , 'archive'])->name('blog.archive') ;
