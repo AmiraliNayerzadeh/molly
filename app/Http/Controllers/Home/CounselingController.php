@@ -11,4 +11,18 @@ class CounselingController extends Controller
     {
         return view('home.counseling.index');
     }
+
+    public function store(Request $request)
+    {
+        $valid = $request->validate([
+            'name' => 'required' ,
+            'phone' => 'required',
+            'email' => 'nullable' ,
+            'web' => 'nullable' ,
+            'category' => 'nullable' ,
+            'status' => 'required' ,
+        ]);
+
+        dd('yes this is sended') ;
+    }
 }

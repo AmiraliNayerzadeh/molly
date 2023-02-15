@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Counseling extends Model
 {
-    use HasFactory;
+    protected $fillable = ['name' , 'phone' , 'email' , 'web' , 'category' , 'status'] ;
 }

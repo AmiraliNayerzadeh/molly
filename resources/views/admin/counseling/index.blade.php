@@ -43,7 +43,7 @@
                             <th>Name</th>
                             <th>CEO</th>
                             <th>Web Address</th>
-                            <th>Edit</th>
+                            <th>Status</th>
                             <th>Delete</th>
                         </tr>
                         </thead>

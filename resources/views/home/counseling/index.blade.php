@@ -12,7 +12,7 @@
                     <div class="section-title title-02 mb-80">
 
                         <!-- Title -->
-                        <h2 class="h2-xs">Have a question? Need help? Don't hesitate, drop us a line</h2>
+                        <h2 class="h2-xs">درخواست مشاوره</h2>
 
                         <!-- Text -->
                         <p class="p-xl">Aliquam a augue suscipit, luctus neque purus ipsum neque at dolor primis libero
@@ -28,33 +28,43 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-xl-8">
                     <div class="form-holder">
-                        <form name="contactform" class="row contact-form">
-
+                        <form action="{{route('counseling.store')}}" class="row contact-form">
                             <!-- Form Select -->
                             <div class="col-md-12 input-subject">
-                                <p class="p-lg">This question is about: </p>
-                                <span>Choose a topic, so we know who to send your request to: </span>
-                                <select class="form-select subject" aria-label="Default select example">
-                                    <option selected>This question is about...</option>
-                                    <option>Registering/Authorising</option>
-                                    <option>Using Application</option>
-                                    <option>Troubleshooting</option>
-                                    <option>Backup/Restore</option>
-                                    <option>Other</option>
+                                <p class="p-lg">در کدام بخش نیاز به مشاوره دارین؟</p>
+                                <select class="form-select subject" aria-label="service" name="category">
+                                    <option selected>بخش مورد نیاز را انتخاب کنید</option>
+                                    <option name="طراحی و توسعه وب و اپلیکیشن">طراحی و توسعه وب و اپلیکیشن</option>
+                                    <option name="سئو بهینه سازی">سئو بهینه سازی</option>
+                                    <option name="توسعه کسب و کار">توسعه کسب و کار</option>
+                                    <option name="مدیریت شبکه های اجتماعی">مدیریت شبکه های اجتماعی</option>
+                                    <option name="حوزه های مربوط به طراحی">حوزه های مربوط به طراحی</option>
+                                    <option name="فیلم برداری و تدوین">فیلم برداری و تدوین</option>
+                                    <option name="پادکست">پادکست</option>
+                                    <option name="دیگر">دیگر</option>
                                 </select>
                             </div>
 
                             <!-- Contact Form Input -->
                             <div class="col-md-12">
-                                <p class="p-lg">Your Name: </p>
-                                <span>Please enter your real name: </span>
-                                <input type="text" name="name" class="form-control name" placeholder="Your Name*">
+                                <p class="p-lg">نام و نام خانوادگی:</p>
+                                <input type="text" required name="name" class="form-control name" placeholder="نام خود را وارد کنید*">
+                            </div>
+
+
+                            <div  class="col-md-12">
+                                <p class="p-lg">شماره تلفن: </p>
+                                <input type="number" name="phone" class="form-control " placeholder="شماره تلفن خود را وارد کنید*">
                             </div>
 
                             <div  class="col-md-12">
-                                <p class="p-lg">Your Email Address: </p>
-                                <span>Please carefully check your email address for accuracy</span>
-                                <input type="text" name="email" class="form-control email" placeholder="Email Address*">
+                                <p class="p-lg">آدرس ایمیل: </p>
+                                <input type="text" name="email" class="form-control email" placeholder="در صورت تمایل آدرس ایمیل خود را وارد کنید">
+                            </div>
+
+                            <div class="col-md-12">
+                                <p class="p-lg">آدرس سایت:</p>
+                                <input type="text"  name="web" class="form-control " placeholder="اگر برای کسب و کار خود سایت دارید، آدرس آن را وارد کنید.">
                             </div>
 
                             <div class="col-md-12">

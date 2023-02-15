@@ -25,6 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/contacts', [App\Http\Controllers\HomeController::class, 'contacts'])->name('contacts');
 
 Route::get('/Counseling', [\App\Http\Controllers\Home\CounselingController::class, 'Counseling'])->name('Counseling');
+Route::get('/Counseling/store', [\App\Http\Controllers\Home\CounselingController::class, 'store'])->name('counseling.store');
 
 Route::get('/faqs', [App\Http\Controllers\HomeController::class, 'faqs'])->name('faqs');
 

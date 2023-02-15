@@ -19,5 +19,5 @@ Route::resource('customers' , \App\Http\Controllers\Admin\CustomerController::cl
 
 Route::resource('Ui' , \App\Http\Controllers\Admin\UiController::class) ;
 
-Route::resource('counseling' , \App\Http\Controllers\Admin\CounselingController::class) ;
+Route::resource('counseling' , \App\Http\Controllers\Admin\CounselingController::class)->except('create' , 'show' , 'edit' , 'store') ;
 
