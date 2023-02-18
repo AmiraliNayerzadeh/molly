@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,10 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
 
     /**
      * Show the application dashboard.
@@ -23,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $this->seo()->setTitle('خانه');
+        return view('home.index');
     }
 
     public function contacts()
@@ -34,11 +37,12 @@ class HomeController extends Controller
 
     public function faqs()
     {
+        $this->seo()->setTitle('سوالات متداول');
 //        return view('home.connect')
     }
 
     public function Counseling()
     {
-        
+
     }
 }

@@ -3,16 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="author" content="DSAThemes"/>
-    <meta name="description" content="OLMO - Software, App, SaaS & Startup Landing Pages Pack"/>
-    <meta name="keywords"
-          content="Responsive, HTML5, DSAThemes, One Page, Landing, Software, Mobile App, SaaS, Startup, Creative, Freelancers, Digital Product">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!-- SITE TITLE -->
-    <title>OLMO - Software, App, SaaS & Startup Landing Pages Pack</title>
+{!! SEO::generate() !!}
 
-    <!-- FAVICON AND TOUCH ICONS -->
+
+<!-- FAVICON AND TOUCH ICONS -->
     <link rel="shortcut icon" href="asset/images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="asset/images/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="152x152" href="asset/images/apple-touch-icon-152x152.png">
@@ -68,7 +65,6 @@
 ============================================= -->
 <div id="page" class="page rtl-direction">
 
-
     @include('.home.layout.header')
     @yield('content')
     @include('.home.layout.footer')
@@ -87,13 +83,12 @@
 <script src="{{asset('asset/js/isotope.pkgd.min.js')}}"></script>
 <script src="{{asset('asset/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('asset/js/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{asset('asset/js/quick-form.js')}}"></script>
-<script src="{{asset('asset/js/request-form.js')}}"></script>
-<script src="{{asset('asset/js/jquery.validate.min.js')}}"></script>
-<script src="{{asset('asset/js/jquery.ajaxchimp.min.js')}}"></script>
 <script src="{{asset('asset/js/wow.js')}}"></script>
 
 <!-- Custom Script -->
 <script src="{{asset('asset/js/custom.js')}}"></script>
+
+@include('sweetalert::alert')
+
 </body>
 </html>

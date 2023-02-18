@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Counseling;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CounselingController extends Controller
 {
@@ -29,9 +30,16 @@ class CounselingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Counseling $counseling)
     {
-        //
+        $valid = $request->validate([
+            'status' => 'required'
+        ]);
+        $counseling->update([
+            'status'=> $valid['status']
+        ]);
+        Alert::success('Success ', 'Counseling Status updated... .');
+        return back();
     }
 
     /**

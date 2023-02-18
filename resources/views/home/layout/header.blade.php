@@ -37,7 +37,7 @@
                         <li aria-haspopup="true"><span class="wsmenu-click"><i class="wsmenu-arrow"></i></span><a href="{{route('service.main')}}">خدمات<span class="wsarrow"></span></a>
                             <ul class="sub-menu">
                                 @foreach(\App\Models\Category::all() as $category)
-                                <li aria-haspopup="true"><a href="{{route('service.index' , $category->name)}}">{{$category->name}}</a></li>
+                                <li aria-haspopup="true"><a href="{{route('service.index' , $category->slug)}}">{{$category->name}}</a></li>
                                 @endforeach
                             </ul>
                         </li>
@@ -61,7 +61,7 @@
 
             </div>
         </div>	<!-- END NAVIGATION MENU -->
-
-
     </div>     <!-- End header-wrapper -->
 </header>	<!-- END HEADER -->
+
+

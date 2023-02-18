@@ -15,8 +15,8 @@
                         <h2 class="h2-xs">درخواست مشاوره</h2>
 
                         <!-- Text -->
-                        <p class="p-xl">Aliquam a augue suscipit, luctus neque purus ipsum neque at dolor primis libero
-                            tempus, blandit and cursus varius and magnis sapien
+                        <p class="p-xl">
+                            بعد از ارسال فرم، تیم مولی در کم تر از 24 ساعت با شما تماس خواهد گرفت.
                         </p>
 
                     </div>
@@ -27,11 +27,23 @@
             <!-- CONTACT FORM -->
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-xl-8">
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="form-holder">
-                        <form action="{{route('counseling.store')}}" class="row contact-form">
+                        <form method="post" action="{{route('counseling.store')}}" class="row contact-form">
+                            @csrf
+                                @method('POST')
                             <!-- Form Select -->
                             <div class="col-md-12 input-subject">
-                                <p class="p-lg">در کدام بخش نیاز به مشاوره دارین؟</p>
+                                <p class="p-lg">در کدام بخش نیاز به مشاوره دارین؟*</p>
                                 <select class="form-select subject" aria-label="service" name="category">
                                     <option selected>بخش مورد نیاز را انتخاب کنید</option>
                                     <option name="طراحی و توسعه وب و اپلیکیشن">طراحی و توسعه وب و اپلیکیشن</option>
@@ -47,41 +59,43 @@
 
                             <!-- Contact Form Input -->
                             <div class="col-md-12">
-                                <p class="p-lg">نام و نام خانوادگی:</p>
-                                <input type="text" required name="name" class="form-control name" placeholder="نام خود را وارد کنید*">
+                                <p class="p-lg">نام و نام خانوادگی*:</p>
+                                <input type="text" required name="name" class="form-control" placeholder="نام خود را وارد کنید*">
                             </div>
 
 
                             <div  class="col-md-12">
-                                <p class="p-lg">شماره تلفن: </p>
+                                <p class="p-lg">شماره تلفن*: </p>
                                 <input type="number" name="phone" class="form-control " placeholder="شماره تلفن خود را وارد کنید*">
                             </div>
 
                             <div  class="col-md-12">
-                                <p class="p-lg">آدرس ایمیل: </p>
-                                <input type="text" name="email" class="form-control email" placeholder="در صورت تمایل آدرس ایمیل خود را وارد کنید">
+                                <p class="p-lg">آدرس ایمیل(اختیاری): </p>
+                                <input type="text" name="email" class="form-control" placeholder="در صورت تمایل آدرس ایمیل خود را وارد کنید">
                             </div>
 
                             <div class="col-md-12">
-                                <p class="p-lg">آدرس سایت:</p>
+                                <p class="p-lg">آدرس سایت(اختیاری):</p>
                                 <input type="text"  name="web" class="form-control " placeholder="اگر برای کسب و کار خود سایت دارید، آدرس آن را وارد کنید.">
                             </div>
 
                             <div class="col-md-12">
-                                <p class="p-lg">Explain your question in details: </p>
-                                <span>Your OS version, OLMO version & build, steps you did. Be VERY precise!</span>
-                                <textarea class="form-control message" name="message" rows="6" placeholder="I have a problem with..."></textarea>
+                                <p class="p-lg">توضیحات (اختیاری)</p>
+                                <span>توضیحات شما هر چقدر کامل تر باشد، تیم مولی در خصوص توسعه ی شما می تواند بهتر تصمیم گیری کند.</span>
+                                <textarea class="form-control " name="description" rows="6"></textarea>
                             </div>
 
                             <!-- Contact Form Button -->
                             <div class="col-md-12 mt-15 form-btn text-right">
-                                <button type="submit" class="btn btn-skyblue tra-grey-hover submit">Submit Request</button>
+                                <button type="submit" class="btn btn-skyblue tra-grey-hover">ثبت و ارسال</button>
                             </div>
 
                             <!-- Contact Form Message -->
                             <div class="col-lg-12 contact-form-msg">
                                 <span class="loading"></span>
                             </div>
+
+                                <input type="hidden" name="status" value="New">
 
                         </form>
                     </div>

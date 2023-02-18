@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('clientLogo');
             $table->string('featuring');
             $table->string('featuringMobile');
+            $table->string('slug'); // Field name same as your `saveSlugsTo`
             $table->timestamps();
         });
     }

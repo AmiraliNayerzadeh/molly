@@ -167,7 +167,7 @@
             <!-- IMAGE BLOCK -->
             <div class="col-md-5 col-lg-6">
                 <div class="rel img-block left-column wow fadeInRight">
-                    <img class="img-fluid" src="/asset/images/img-09.png" alt="content-image">
+                    <img class="img-fluid" src="/asset/images/molly-banner1.png" alt="خدمات دیجیتال مارکتینگ مولی">
                 </div>
             </div>
 
@@ -210,7 +210,7 @@
 
 
                 <!-- TEXT BLOCK -->
-                <div class="col-md-7 col-lg-6">
+                <div class="col-md-7 col-lg-5">
                     <div class="txt-block left-column wow fadeInRight">
                         <h2 class="h2-xs">طراحی سایت</h2>
 
@@ -259,9 +259,9 @@
 
 
                 <!-- IMAGE BLOCK -->
-                <div class="col-md-5 col-lg-6">
+                <div class="col-md-5 col-lg-7">
                     <div class="img-block right-column wow fadeInLeft">
-                        <img class="img-fluid" src="/asset/images/img-12.png" alt="content-image">
+                        <img class="img-fluid" src="/asset/images/molly-web-designer.png" alt="content-image">
                     </div>
                 </div>
 
@@ -305,7 +305,7 @@
                 <!-- IMAGE BLOCK -->
                 <div class="col-md-5 col-lg-6">
                     <div class="img-block left-column wow fadeInRight">
-                        <img class="img-fluid" src="/asset/images/img-05.png" alt="content-image">
+                        <img class="img-fluid" src="/asset/images/molly-seo.png" alt="خدمات سئو و بهینه سازی مولی">
                     </div>
                 </div>
 
@@ -430,7 +430,7 @@
                 <!-- IMAGE BLOCK -->
                 <div class="col-md-5 col-lg-6 order-first order-md-2">
                     <div class="img-block right-column wow fadeInLeft">
-                        <img class="img-fluid" src="/asset/images/img-02.png" alt="content-image">
+                        <img class="img-fluid" src="/asset/images/social-media-molly.png" alt="content-image">
                     </div>
                 </div>
 

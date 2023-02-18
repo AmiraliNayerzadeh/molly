@@ -28,7 +28,7 @@
                         <!-- BLOG POST IMAGE -->
                         <div class="col-lg-7 blog-post-img">
                             <div class="hover-overlay">
-                                <a href="{{route('blog.single', $random->title)}}">
+                                <a href="{{route('blog.single', $random->slug)}}">
                                     <img class="img-fluid" src="{{$random->image}}" alt="{{$random->title}}"/>
                                 </a>
                                 <div class="item-overlay"></div>
@@ -43,7 +43,7 @@
 
                             <!-- Post Link -->
                             <h5 class="h5-xl">
-                                <a href="{{route('blog.single', $random->title)}}">{{$random->title}}</a>
+                                <a href="{{route('blog.single', $random->slug)}}">{{$random->title}}</a>
                             </h5>
 
 

@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('meta_keyword')->nullable() ;
             $table->text('meta_description')->nullable();
             $table->boolean('status')->default(0) ;
+            $table->string('slug'); // Field name same as your `saveSlugsTo`
+
 
 //            English Language
             $table->string('english_title')->nullable() ;

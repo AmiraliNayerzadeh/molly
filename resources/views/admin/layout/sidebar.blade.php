@@ -191,6 +191,9 @@
                         <p>
                             Counselings
                             <i class="fas fa-angle-left right"></i>
+                            @if(count(\App\Models\Counseling::all()->where('status' , 'New')) > 0)
+                            <span class="badge badge-success right">{{\App\Models\Counseling::all()->where('status' , 'New')->count()}} New!</span>
+                            @endif
                         </p>
                     </a>
                     <ul class="nav nav-treeview">

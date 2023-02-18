@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Counseling extends Model
 {
-    protected $fillable = ['name' , 'phone' , 'email' , 'web' , 'category' , 'status'] ;
+    protected $fillable = ['name' , 'phone' , 'email' , 'web' , 'category' , 'status' , 'description'] ;
 }

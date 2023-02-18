@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Counseling;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
-class CounselingController extends Controller
+class
+CounselingController extends Controller
 {
     public function Counseling()
     {
+        $this->seo()->setTitle('درخواست مشاوره');
         return view('home.counseling.index');
     }
 
@@ -21,8 +25,10 @@ class CounselingController extends Controller
             'web' => 'nullable' ,
             'category' => 'nullable' ,
             'status' => 'required' ,
+            'description' => 'nullable' ,
         ]);
-
-        dd('yes this is sended') ;
+        Counseling::create($valid);
+        Alert::success('ثبت درخواست', 'درخواست شما با موفقیت ثبت شد!');
+        return back();
     }
 }

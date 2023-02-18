@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('web')->nullable();
             $table->string('category');
-            $table->string('status');
+            $table->enum('status', ['New', 'Pending' , 'canceled' , 'Completed']) ;
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
