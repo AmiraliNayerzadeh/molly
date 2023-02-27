@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name') ;
             $table->unsignedBigInteger('parent')->default(0) ;
             $table->text('description')->nullable();
-            $table->text('image')->default('/categories/default.jpg');
+            $table->tinyText('image')->default('/categories/default.jpg');
             $table->string('meta_title')->nullable();
             $table->string('meta_keyword')->nullable();
             $table->string('meta_description')->nullable();
