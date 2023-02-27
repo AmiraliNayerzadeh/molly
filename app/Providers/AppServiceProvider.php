@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use mysql_xdevapi\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
