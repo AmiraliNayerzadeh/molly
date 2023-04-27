@@ -25,7 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $this->seo()->setTitle('خانه');
+        $this->seo()->setTitle('صفحه اصلی');
+        $this->seo()->setDescription(   "تیم توسعه و طراحی مولی در سال 2021 باهدف ایجاد تغییر و تحول در فضای کسب و کارهای دیجیتال و وب ایران فعالیت رسمی خود را آغاز کرد.");
+        $this->seo()->metatags()->setKeywords("مولی , دیجیتال مارکتینگ مولی, طراحی سایت مولی");
+        $this->seo()->setCanonical(url()->current());
+        $this->seo()->opengraph()->setUrl(url()->current());
+
+
+
         return view('home.index');
     }
 

@@ -29,7 +29,7 @@ class BlogController extends Controller
         }
 
         if ($blog->meta_keyword) {
-            $this->seo()->setDescription($blog->meta_keyword) ;
+            $this->seo()->metatags()->setKeywords("مولی , درخواست تماس");
         }
 
         return view('home.blog.single' , compact('blog')) ;

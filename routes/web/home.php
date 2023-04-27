@@ -41,3 +41,12 @@ Route::get('mag/category/{blog:slug}' , [\App\Http\Controllers\Home\BlogControll
 Route::get('service' , [\App\Http\Controllers\Home\ServiceController::class , 'main'])->name('service.main') ;
 Route::get('service/{category:slug}' , [\App\Http\Controllers\Home\ServiceController::class , 'index'])->name('service.index') ;
 
+
+
+
+Route::get('/sitemap.xml' ,[\App\Http\Controllers\SitemapController::class ,'index'])->name('sitemap.index') ;
+Route::get('/sitemap-static.xml' ,[\App\Http\Controllers\SitemapController::class ,'static'])->name('sitemap.static') ;
+Route::get('/sitemap.service.xml' ,[\App\Http\Controllers\SitemapController::class ,'service'])->name('sitemap.service') ;
+Route::get('/sitemap-article.xml' ,[\App\Http\Controllers\SitemapController::class ,'article'])->name('sitemap.article') ;
+Route::get('/sitemap-project.xml' ,[\App\Http\Controllers\SitemapController::class ,'project'])->name('sitemap.project') ;
+

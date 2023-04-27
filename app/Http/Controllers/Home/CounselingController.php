@@ -13,6 +13,11 @@ CounselingController extends Controller
     public function Counseling()
     {
         $this->seo()->setTitle('درخواست مشاوره');
+        $this->seo()->setDescription(   "با ثبت در خواست خود برای ایجاد پروژه، کارشناسان تیم توسعه مولی در کوتاه ترین زمان با شما تماس خواهند گرفت.");
+        $this->seo()->metatags()->setKeywords("مولی , درخواست تماس");
+        $this->seo()->setCanonical(url()->current());
+        $this->seo()->opengraph()->setUrl(url()->current());
+
         return view('home.counseling.index');
     }
 

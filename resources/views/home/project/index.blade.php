@@ -41,7 +41,7 @@
                                 <div class="project-txt">
                                     <!-- Link -->
                                     <h5 class="h5-lg">
-                                        <a href="project-details.html">
+                                        <a href="{{route('project.single' , $projects)}}">
                                             {{$projects->title}}
                                         </a>
                                     </h5>
