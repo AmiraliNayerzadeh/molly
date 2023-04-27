@@ -6,7 +6,7 @@
 
         <!-- MOBILE HEADER -->
         <div class="wsmobileheader clearfix">
-            <span class="smllogo"><img src="asset/images/logo-01.png" alt="mobile-logo"/></span>
+            <span class="smllogo"><img src="{{asset('asset/images/logo-01.png')}}" alt="molly team | تیم توسعه مولی"/></span>
             <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
         </div>
 
