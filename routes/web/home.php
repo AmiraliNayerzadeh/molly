@@ -44,9 +44,9 @@ Route::get('service/{category:slug}' , [\App\Http\Controllers\Home\ServiceContro
 
 
 
-Route::get('sitemap.xml' ,[\App\Http\Controllers\SitemapController::class ,'index'])->name('sitemap.index') ;
-Route::get('sitemap-static.xml' ,[\App\Http\Controllers\SitemapController::class ,'static'])->name('sitemap.static') ;
-Route::get('sitemap.service.xml' ,[\App\Http\Controllers\SitemapController::class ,'service'])->name('sitemap.service') ;
-Route::get('sitemap-article.xml' ,[\App\Http\Controllers\SitemapController::class ,'article'])->name('sitemap.article') ;
-Route::get('sitemap-project.xml' ,[\App\Http\Controllers\SitemapController::class ,'project'])->name('sitemap.project') ;
+Route::get('site-map.xml' ,[\App\Http\Controllers\SitemapController::class ,'index'])->name('sitemap.index') ;
+Route::get('site-map-static.xml' ,[\App\Http\Controllers\SitemapController::class ,'static'])->name('sitemap.static') ;
+Route::get('site-map.service.xml' ,[\App\Http\Controllers\SitemapController::class ,'service'])->name('sitemap.service') ;
+Route::get('site-map-article.xml' ,[\App\Http\Controllers\SitemapController::class ,'article'])->name('sitemap.article') ;
+Route::get('site-map-project.xml' ,[\App\Http\Controllers\SitemapController::class ,'project'])->name('sitemap.project') ;
 
