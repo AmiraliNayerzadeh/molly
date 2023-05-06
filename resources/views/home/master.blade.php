@@ -46,20 +46,22 @@
     <!-- Kalameh font CSS -->
     <link href="{{asset('asset/css/kalameh.css')}}" rel="stylesheet">
 
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5SH4FCJJTX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-5SH4FCJJTX');
+    </script>
+
+
+
 </head>
 <body>
-{{--<!-- PRELOADER SPINNER--}}
-{{--============================================= -->--}}
-{{--<div id="loading" class="orange-red-loading">--}}
-{{--    <div id="loading-center">--}}
-{{--        <div id="loading-center-absolute">--}}
-{{--            <div class="object" id="object_one"></div>--}}
-{{--            <div class="object" id="object_two"></div>--}}
-{{--            <div class="object" id="object_three"></div>--}}
-{{--            <div class="object" id="object_four"></div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+
 
 <!-- PAGE CONTENT
 ============================================= -->
