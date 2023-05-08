@@ -60,7 +60,7 @@
 
                         <div class="form-group col-lg-12">
                             <label for="about" class="form-label">description:</label>
-                            <textarea class="ckeditor form-text" name="description" id="" cols="30" rows="10">{{old('description')}}</textarea>
+                            <textarea class="ckeditor form-text" name="description" id="ckeditor" cols="30" rows="10">{{old('description')}}</textarea>
                         </div>
                     </div>
                     <div class="card-footer">

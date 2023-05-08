@@ -21,3 +21,6 @@ Route::resource('Ui' , \App\Http\Controllers\Admin\UiController::class) ;
 
 Route::resource('counseling' , \App\Http\Controllers\Admin\CounselingController::class)->except('create' , 'show' , 'edit' , 'store' , 'edit') ;
 
+Route::post('ckeditor/upload', [\App\Http\Controllers\admin\CkeditorController::class , 'upload'])->name('ckeditor.upload');
+
+

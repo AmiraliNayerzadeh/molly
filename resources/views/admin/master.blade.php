@@ -85,7 +85,18 @@
 <script src="/asset/Admin/dist/js/adminlte.js"></script>
 
 
-<script src="/asset/Admin/plugins/ckeditor/ckeditor.js"></script>
+{{--<script src="/asset/Admin/plugins/ckeditor/ckeditor.js"></script>--}}
+
+
+<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('ckeditor', {
+        language: 'fa',
+        content: 'fa',
+        filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+    });
+</script>
 
 @include('sweetalert::alert')
 

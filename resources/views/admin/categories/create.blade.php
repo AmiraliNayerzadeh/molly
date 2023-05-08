@@ -46,7 +46,7 @@
 
                                     <div class="form-group">
                                         <label class="form-label" for="title">Description: <small>optional</small>  </label>
-                                        <textarea class="ckeditor form-control" name="description" id="description" cols="30" rows="10">{!! old('description') !!}</textarea>
+                                        <textarea class="ckeditor form-control" name="description" id="ckeditor" cols="30" rows="10">{!! old('description') !!}</textarea>
                                     </div>
 
 
