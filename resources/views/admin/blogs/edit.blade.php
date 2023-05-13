@@ -35,6 +35,7 @@
                 <!-- /.card-header -->
                 <form action="{{route('blogs.update',$blog)}}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="card-body row">
                         <section class="col-lg-9">
                             <div class="card">
