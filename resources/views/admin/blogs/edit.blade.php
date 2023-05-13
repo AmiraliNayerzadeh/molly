@@ -42,14 +42,14 @@
                                     <div class="form-group">
                                         <label class="form-label" for="title">Title:</label>
                                         <input class="form-control" type="text" name="title" id="title"
-                                               value="{{old('title')}}" placeholder="Enter the title of your article"
+                                               value="{{$blog->title}}" placeholder="Enter the title of your article"
                                                required>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label" for="title">Description:</label>
                                         <textarea class="ckeditor form-control" name="description" id="ckeditor"
-                                                  cols="30" rows="10">{!! old('description') !!}</textarea>
+                                                  cols="30" rows="10">{!! $blog->description !!}</textarea>
                                     </div>
 
                                 </div>
@@ -99,7 +99,7 @@
                                     <div class="form-group">
                                         <div class="card-img">
                                             <img class="img-fluid rounded"
-                                                 src="{{asset('/images/Admin/GetArticleImage.png')}}"
+                                                 src="{{$blog->image}}"
                                                  alt="GetArticleImage">
                                         </div>
                                         <label class="form-label" for="image"></label>
@@ -117,19 +117,19 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label class="form-label" for="meta_keyword">KeyWord:</label>
-                                        <input class="form-control" type="text" name="meta_keyword" id="meta_keyword"
+                                        <input class="form-control" type="text" name="meta_keyword" {{$blog->meta_keyword}} id="meta_keyword"
                                                placeholder="Separate by , ">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label" for="meta_title">Meta Title:</label>
-                                        <input class="form-control" type="text" name="meta_title" id="meta_title">
+                                        <input class="form-control" type="text" name="meta_title" value="{{$blog->meta_title}}" id="meta_title">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label" for="meta_description">meta Description:</label>
                                         <textarea class="form-control" name="meta_description" id="meta_description"
-                                                  cols="30" rows="5"></textarea>
+                                                  cols="30" rows="5">{!! $blog->meta_description !!}</textarea>
                                     </div>
                                 </div>
                             </div>

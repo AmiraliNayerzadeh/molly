@@ -82,7 +82,7 @@
                                     <!-- BLOG POST IMAGE -->
                                     <div class="blog-post-img">
                                         <div class="hover-overlay">
-                                            <a href="{{route('blog.single', $blogs->title)}}">
+                                            <a href="{{route('blog.single', $blogs->slug)}}">
                                                 <img class="img-fluid" src="{{$blogs->image}}" alt="{{$blogs->title}}"/>
                                             </a>
                                             <div class="item-overlay"></div>
@@ -97,7 +97,7 @@
 
                                         <!-- Post Link -->
                                         <h5 class="h5-md">
-                                            <a href="{{route('blog.single', $blogs->title)}}">
+                                            <a href="{{route('blog.single', $blogs->slug)}}">
                                                 {{$blogs->title}}
                                             </a>
                                         </h5>
