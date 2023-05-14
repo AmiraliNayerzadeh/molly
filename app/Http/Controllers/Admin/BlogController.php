@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -64,6 +65,7 @@ class BlogController extends Controller
         $blog = auth()->user()->blogs()->create($validate) ;
         $blog->categories()->sync($validate['category']) ;
 
+
         return redirect(route('blogs.index')) ;
     }
 
@@ -96,7 +98,7 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $blog)
+    public function update(Request $request,Blog $blog)
     {
         $validate = $request->validate([
             'title' => ['string' , 'required' , 'min:5' , 'max:40' , ] ,
@@ -104,23 +106,26 @@ class BlogController extends Controller
             'meta_title' => 'nullable' ,
             'meta_keyword' => 'nullable' ,
             'meta_description' => 'nullable' ,
-            'image' => ['required' , 'mimes:jpg,jpeg,png' , 'max:2048'],
+            'image' => ['nullable' , 'mimes:jpg,jpeg,png' , 'max:2048'],
             'status' => 'required' ,
-            'category' => 'required'
+            'categories' => 'required'
         ]);
 
+
+        if ($request->file('image')) {
         $file = $request->file('image') ;
         $file->move(public_path('/blogs/'), $file->getClientOriginalName()) ;
         $validate['image'] = '/blogs/'.$file->getClientOriginalName();
-
+        }
         if ($validate['status'] == '0') {
             Alert::success('Success ', 'Blog drafted!');
         } else {
-            Alert::success('Success ', 'Blog Created!');
+            Alert::success('Success ', 'Blog updated!');
 
         }
-        $blog = auth()->user()->blogs()->update($validate) ;
-        $blog->categories()->sync($validate['category']) ;
+        $blog->update($validate) ;
+        $blog->categories()->sync($validate['categories']) ;
+
         return redirect(route('blogs.index')) ;
     }
 
