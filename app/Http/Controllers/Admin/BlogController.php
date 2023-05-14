@@ -96,7 +96,7 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $blog)
     {
         $validate = $request->validate([
             'title' => ['string' , 'required' , 'min:5' , 'max:40' , ] ,

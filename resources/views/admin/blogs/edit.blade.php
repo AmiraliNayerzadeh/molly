@@ -33,9 +33,11 @@
                     <h3 class="card-title">Create Blog</h3>
                 </div>
                 <!-- /.card-header -->
-                <form action="{{route('blogs.update',$blog)}}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
+
+
+                    <form action="{{route('blogs.update',$blog)}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
                     <div class="card-body row">
                         <section class="col-lg-9">
                             <div class="card">
@@ -165,8 +167,7 @@
                                     </div>
 
                                     <div class="col">
-                                        <button class="btn btn-light " name="status" value="0" type="submit">draft
-                                        </button>
+                                        <button class="btn btn-light " name="status" value="0" type="submit">draft</button>
                                     </div>
 
                                 </div>
